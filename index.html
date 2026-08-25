@@ -318,6 +318,18 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;font-size:.875rem;co
 .striprow .sep{display:none}
 @media(max-width:1000px){.striprow{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:520px){.striprow{grid-template-columns:1fr}}
+
+/* ---- irasok lista a fooldalon ---- */
+.irasok{margin-top:38px;border-top:1px solid var(--line)}
+.irow{display:grid;grid-template-columns:auto 1fr auto;gap:22px;align-items:baseline;
+  padding:19px 6px;border-bottom:1px solid var(--line);text-decoration:none;color:inherit;transition:background .16s}
+.irow:hover{background:var(--coppersoft)}
+.irow .in{font:600 .74rem/1.6 var(--mono);color:var(--copper);letter-spacing:.06em}
+.irow .ic{display:block;font-weight:600;font-size:1.02rem;letter-spacing:-.01em;line-height:1.4}
+.irow .ik{display:block;font:400 .84rem/1.5 var(--sans);color:var(--slate);margin-top:4px}
+.irow .ia{font:400 1rem/1 var(--mono);color:var(--copper);opacity:.5}
+.irow:hover .ia{opacity:1}
+@media(max-width:560px){.irow{grid-template-columns:auto 1fr;gap:14px}.irow .ia{display:none}}
 </style>
 <script>document.documentElement.className+=' janim';</script>
 </head>
@@ -336,6 +348,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;font-size:.875rem;co
       <a href="#szolgaltatasok">Szolgáltatások</a>
       <a href="#kepessegek">Képességek</a>
       <a href="#folyamat">Módszertan</a>
+      <a href="#irasok">Írások</a>
       <a href="#arak">Árak</a>
       <a class="btn" href="#kapcsolat">Kapcsolat</a>
     </nav>
@@ -652,6 +665,53 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;font-size:.875rem;co
         <li>Átadás után is elérhetők vagyunk</li>
         <li>Havi keret, ha folyamatos munka kell</li></ul></div>
     </div>
+  </div>
+</section>
+
+<section id="irasok">
+  <div class="wrap">
+    <span class="term">&gt; <b>./irasok</b></span>
+    <h2>Szakmai írások</h2>
+    <p class="lead" style="margin-top:14px">Döntés előtti kérdésekre adott válaszok: mibe kerül, mennyi az utána következő költség, és mikor jobb nem fejlesztetni. Minden írás konkrét számokkal dolgozik.</p>
+    <div class="irasok">
+        <a class="irow rv" href="cikkek/egyedi-rendszer-ara.html">
+          <span class="in">01</span>
+          <span><span class="ic">Mennyibe kerül egy egyedi ügyviteli rendszer 2026-ban? Tételes árszintek és a határaik</span>
+          <span class="ik">árazás · 8 perc olvasás</span></span>
+          <span class="ia">&rarr;</span>
+        </a>
+        <a class="irow rv" href="cikkek/uzemeltetesi-koltseg-tetelesen.html">
+          <span class="in">02</span>
+          <span><span class="ic">Mi a költség azután, hogy elkészül? Egy egyedi rendszer három évének tételes kiadásai</span>
+          <span class="ik">árazás · 8 perc olvasás</span></span>
+          <span class="ia">&rarr;</span>
+        </a>
+        <a class="irow rv" href="cikkek/mikor-ne-keszuljon-egyedi-szoftver.html">
+          <span class="in">03</span>
+          <span><span class="ic">Mikor ne készüljön egyedi szoftver — hat helyzet, amelyben kész termék a jobb választás</span>
+          <span class="ik">döntés · 9 perc olvasás</span></span>
+          <span class="ia">&rarr;</span>
+        </a>
+        <a class="irow rv" href="cikkek/atadando-hozzaferesek-listaja.html">
+          <span class="in">04</span>
+          <span><span class="ic">Ha a fejlesztő holnap eltűnik: 12 tétel, aminek a Megrendelő kezében kell lennie</span>
+          <span class="ik">kockázat · 9 perc olvasás</span></span>
+          <span class="ia">&rarr;</span>
+        </a>
+        <a class="irow rv" href="cikkek/rendszer-es-folyamataudit-lepesei.html">
+          <span class="in">05</span>
+          <span><span class="ic">Mit tár fel egy rendszer- és folyamataudit, és mikor felesleges megrendelni</span>
+          <span class="ik">audit · 7 perc olvasás</span></span>
+          <span class="ia">&rarr;</span>
+        </a>
+        <a class="irow rv" href="cikkek/email-rendelesfeldolgozas-automatizalas.html">
+          <span class="in">06</span>
+          <span><span class="ic">E-mailben érkező megrendelések feldolgozása: mi automatizálható, és hol kell ember a folyamatba</span>
+          <span class="ik">automatizálás · 8 perc olvasás</span></span>
+          <span class="ia">&rarr;</span>
+        </a>
+    </div>
+    <p class="sm" style="margin-top:26px"><a href="cikkek/index.html" style="color:var(--copper);font-weight:600;text-decoration:none">Összes írás &rarr;</a></p>
   </div>
 </section>
 
