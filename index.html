@@ -61,7 +61,7 @@ a{color:var(--copper);text-underline-offset:3px;text-decoration-thickness:1px}
 a:hover{color:var(--copper2)}
 :focus-visible{outline:2px solid var(--focus);outline-offset:2px}
 .wrap{max-width:1160px;margin:0 auto;padding:0 24px}
-section{padding:100px 0}
+section{padding:86px 0}
 h1,h2{font-family:var(--serif);font-weight:600;letter-spacing:-.018em;text-wrap:balance}
 h1{font-size:clamp(2.3rem,1.4rem + 3.5vw,4rem);line-height:1.05;letter-spacing:-.022em}
 h2{font-size:clamp(1.7rem,1.1rem + 2.1vw,2.5rem);line-height:1.14}
@@ -261,6 +261,63 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;font-size:.875rem;co
   :root[data-theme="dark"] .chrome{background:#1B2024}
   :root[data-theme="dark"] .hero{background:radial-gradient(900px 420px at 88% -8%,rgba(224,144,95,.07),transparent 62%)}
 
+
+/* ---- v4: vallalati szerkezeti elemek ---- */
+.paths{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin-top:40px}
+.path{background:var(--card);border:1px solid var(--line);border-radius:4px;padding:32px 30px;position:relative}
+.path::before{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--copper)}
+.path .pt{font:600 .72rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--copper);display:block;margin-bottom:14px}
+.path h3{font-size:1.32rem;margin-bottom:12px;letter-spacing:-.01em}
+.path p{color:var(--slate);font-size:.97rem;margin-bottom:18px}
+.deliv{margin-top:56px;border-top:1px solid var(--line);padding-top:44px}
+.deliv h3{font-size:1.24rem;margin-bottom:10px}
+.dvs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px 26px;margin-top:26px}
+.dvs span{font-size:.93rem;color:var(--slate);padding-left:22px;position:relative;line-height:1.5}
+.dvs span::before{content:"";position:absolute;left:0;top:.55em;width:9px;height:1px;background:var(--copper)}
+.stakes{display:grid;grid-template-columns:repeat(2,1fr);gap:0;margin-top:40px;border-top:1px solid var(--line)}
+.stk{display:grid;grid-template-columns:minmax(150px,.44fr) 1fr;gap:24px;padding:20px 4px;border-bottom:1px solid var(--line);align-items:baseline}
+.stk b{font-size:1rem;letter-spacing:-.01em}
+.stk span{color:var(--slate);font-size:.93rem;line-height:1.55}
+.stk:nth-child(odd){padding-right:34px;border-right:1px solid var(--line)}
+.stk:nth-child(even){padding-left:34px}
+@media(max-width:900px){
+  .paths{grid-template-columns:1fr}
+  .dvs{grid-template-columns:repeat(2,1fr)}
+  .stakes{grid-template-columns:1fr}
+  .stk:nth-child(odd){padding-right:4px;border-right:0}
+  .stk:nth-child(even){padding-left:4px}
+}
+@media(max-width:560px){
+  .dvs{grid-template-columns:1fr}
+  .stk{grid-template-columns:1fr;gap:6px}
+}
+
+/* ---- v4c: fuggoleges ritmus + hero-panel ---- */
+/* Az azonos hatteru szomszedos szekciok hatara lathatatlan volt, ezert
+   a dupla terkoz ures savnak latszott. Hajszalvonal teszi szandekossa. */
+#egyuttmukodes, #dontes{border-top:1px solid var(--line)}
+
+.herogrid{display:grid;grid-template-columns:1.15fr .85fr;gap:64px;align-items:start}
+.heroidx{border:1px solid var(--line);background:var(--card);border-radius:4px;padding:8px 0;margin-top:6px}
+.heroidx a{display:grid;grid-template-columns:auto 1fr auto;gap:16px;align-items:baseline;
+  padding:15px 24px;text-decoration:none;color:inherit;border-bottom:1px solid var(--line);transition:background .16s}
+.heroidx a:last-child{border-bottom:0}
+.heroidx a:hover{background:var(--copper-soft)}
+.heroidx .ix{font:600 .72rem/1 var(--mono);color:var(--copper);letter-spacing:.06em}
+.heroidx .ib{font-weight:600;font-size:1rem;letter-spacing:-.01em}
+.heroidx .is{display:block;font-weight:400;font-size:.86rem;color:var(--slate);margin-top:3px;line-height:1.45}
+.heroidx .ia{font:400 1rem/1 var(--mono);color:var(--copper);opacity:.55}
+.heroidx a:hover .ia{opacity:1}
+@media(max-width:980px){
+  .herogrid{grid-template-columns:1fr;gap:40px}
+  .heroidx{margin-top:8px}
+}
+/* kulcsszo-sav: ne toredezzen ket sorba csunyan */
+/* Negy egyenlo oszlop: a valto-szeles tartalom igy sosem tordelodik csunyan. */
+.striprow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px 30px;align-items:baseline}
+.striprow .sep{display:none}
+@media(max-width:1000px){.striprow{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:520px){.striprow{grid-template-columns:1fr}}
 </style>
 <script>document.documentElement.className+=' janim';</script>
 </head>
@@ -279,7 +336,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;font-size:.875rem;co
       <a href="#szolgaltatasok">Szolgáltatások</a>
       <a href="#kepessegek">Képességek</a>
       <a href="#munkak">Munkáink</a>
-      <a href="#folyamat">Hogyan dolgozunk</a>
+      <a href="#folyamat">Módszertan</a>
       <a href="#arak">Árak</a>
       <a class="btn" href="#kapcsolat">Kapcsolat</a>
     </nav>
@@ -290,20 +347,30 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;font-size:.875rem;co
 
 <div class="hero">
   <div class="wrap">
+    <div class="herogrid">
+    <div>
     <h1>A digitalizáció nem költség.<br><em>Mérnöki munka.</em></h1>
-    <p class="lead">Weboldalt, webshopot, egyedi üzleti rendszert és folyamatautomatizálást építünk magyar cégeknek. Felméréssel kezdünk, fix áron dolgozunk, és hetente megmutatjuk, mi készült el.</p>
+    <p class="lead">Weboldalak, webshopok, egyedi üzleti rendszerek és folyamatautomatizálás magyar vállalkozások számára. Írásos felméréssel kezdünk, fix áron dolgozunk, és a fejlesztés alatt hetente beszámolunk az elkészült munkáról.</p>
     <div class="hero-ctas">
-      <a class="btn" href="#kapcsolat">Beszéljünk 30 percet</a>
-      <a class="btn btn-2" href="#szolgaltatasok">Mit vállalunk?</a>
+      <a class="btn" href="#szolgaltatasok">Szolgáltatásaink</a>
+      <a class="btn btn-2" href="#kepessegek">Képességeink</a>
     </div>
-    <p class="hnote">Az első beszélgetés ingyenes, és nem értékesítési hívás.</p>
+    <p class="hnote">Minden együttműködés díjmentes konzultációval és írásos felméréssel kezdődik.</p>
+      </div>
+      <nav class="heroidx" aria-label="Szolgáltatási területek">
+        <a href="#szolgaltatasok"><span class="ix">01</span><span><span class="ib">Felmérés és helyzetkép</span><span class="is">Egy nap a telephelyen, írásos jelentés és ütemterv</span></span><span class="ia">&rarr;</span></a>
+        <a href="#szolgaltatasok"><span class="ix">02</span><span><span class="ib">Weboldalak és webshopok</span><span class="is">Saját szerkesztőfelülettel, kereső- és teljesítményoptimalizálva</span></span><span class="ia">&rarr;</span></a>
+        <a href="#szolgaltatasok"><span class="ix">03</span><span><span class="ib">Egyedi üzleti rendszerek</span><span class="is">A napi működés egy rendszerben, felhasználói díj nélkül</span></span><span class="ia">&rarr;</span></a>
+        <a href="#szolgaltatasok"><span class="ix">04</span><span><span class="ib">Automatizálás és AI</span><span class="is">Rendszerintegráció, dokumentumfeldolgozás, kimutatások</span></span><span class="ia">&rarr;</span></a>
+      </nav>
+      </div>
   </div>
 </div>
 
 <div class="strip">
   <div class="wrap striprow">
     <span><b>Weboldalak</b> és webshopok</span><span class="sep">/</span>
-    <span><b>Egyedi rendszerek</b> a folyamataitokra</span><span class="sep">/</span>
+    <span><b>Egyedi rendszerek</b> vállalati folyamatokra</span><span class="sep">/</span>
     <span><b>Automatizálás</b> és rendszerintegráció</span><span class="sep">/</span>
     <span><b>AI-megoldások</b> a napi munkába</span>
   </div>
@@ -319,42 +386,64 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;font-size:.875rem;co
   </div>
 </section>
 
+<section id="egyuttmukodes">
+  <div class="wrap">
+    <span class="term">&gt; <b>./egyuttmukodes</b></span>
+    <h2>Két belépési út</h2>
+    <p class="lead" style="margin-top:14px">Más ütem illik egy kisvállalkozáshoz és más egy nagyobb szervezethez. Mindkét úton ugyanaz a mérnöki színvonal.</p>
+    <div class="paths">
+      <div class="path rv">
+        <span class="pt">Kis- és középvállalkozás</span>
+        <h3>Gyors első eredmény</h3>
+        <p>Felmérés, weboldal, automatizálás vagy egy jól körülhatárolt rendszer. Rövid döntési út, kevesebb formalitás, néhány héten belül működő megoldás. A hangsúly azon van, hogy az első megtakarítás mielőbb megjelenjen.</p>
+        <a class="go" href="#szolgaltatasok">Szolgáltatások →</a>
+      </div>
+      <div class="path rv">
+        <span class="pt">Nagyobb szervezet</span>
+        <h3>Kontrollált bevezetés</h3>
+        <p>Rendszeraudit, ütemezett bevezetés, jogosultsági és adatkezelési kérdések tisztázása, felhasználói átvételi teszt és dokumentált átadás. A cél a kiszámítható döntés és a biztonságosan skálázható működés.</p>
+        <a class="go" href="#folyamat">Szállítási módszertan →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section id="szolgaltatasok" style="background:var(--paper2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="wrap">
     <span class="term">&gt; <b>./szolgaltatasok</b></span>
     <h2>Amiben segítünk</h2>
-    <p class="lead" style="margin-top:14px">Négy szolgáltatás. Egyben vagy külön, ahogy a cégeteknek a legjobb.</p>
+    <p class="lead" style="margin-top:14px">Négy szolgáltatás. Egyben vagy külön, az adott szervezet igényei szerint.</p>
     <div class="svcs">
 
       <article class="svc rv">
         <span class="no">[ 01 ]&nbsp;&nbsp;&gt; digitalizacios-audit</span>
-        <h3>Felmérjük, hol tartotok</h3>
-        <div class="prob"><span class="pl">// a ti problémátok:</span><p>Érzitek, hogy túl sok a kézi munka, de nem tudjátok, hol kezdjétek — és attól tartotok, hogy egy rossz rendszerbe öltök pénzt.</p></div>
-        <p>Egy nap a telephelyeteken végigkísérjük a teljes utat a megrendeléstől a számláig. Írásos jelentést és 90 napos tervet adunk: hol szivárog az idő és a pénz, mi automatizálható, és mihez nem érdemes hozzányúlni. A dokumentum akkor is a tiétek marad, ha nem velünk folytatjátok.</p>
+        <h3>Felmérés és helyzetkép</h3>
+        <div class="prob"><span class="pl">// jellemző kiindulás:</span><p>Érzékelhetően sok a kézi munka, de nem egyértelmű, hol érdemes elkezdeni a fejlesztést — és valós a kockázat, hogy a beruházás rossz irányba indul.</p></div>
+        <p>Egy nap a telephelyen végigkísérjük a teljes utat a megrendeléstől a számláig. Írásos jelentést és 90 napos ütemtervet adunk: hol keletkezik felesleges ráfordítás, mi automatizálható, és mihez nem érdemes hozzányúlni. A dokumentum a Megrendelő tulajdona marad akkor is, ha az együttműködés nem folytatódik.</p>
         <a class="go" href="#arak">200 000 Ft-tól, a díj beszámít →</a>
       </article>
 
       <article class="svc rv">
         <span class="no">[ 02 ]&nbsp;&nbsp;&gt; weboldalak</span>
         <h3>Weboldalak és webshopok</h3>
-        <div class="prob"><span class="pl">// a ti problémátok:</span><p>A jelenlegi oldal évek óta nem frissült, egy szövegcseréhez is külsőst kell hívni, és alig hoz megkeresést.</p></div>
-        <p>Bemutatkozó oldal, kampányoldal vagy webshop — saját szerkesztőfelülettel, hogy a szövegeket, képeket és árakat magatok tudjátok módosítani. Az űrlapokból érkező megkeresés egyenesen a nyilvántartásba fut, nem egy postafiókba. Kereső- és mobilbarát felépítés alapból.</p>
+        <div class="prob"><span class="pl">// jellemző kiindulás:</span><p>A jelenlegi oldal évek óta nem frissült, egy szövegcseréhez is külsőst kell hívni, és alig hoz megkeresést.</p></div>
+        <p>Bemutatkozó oldal, kampányoldal vagy webshop, saját szerkesztőfelülettel, amelyen a szövegek, képek és árak külső segítség nélkül módosíthatók. Az űrlapokból érkező megkeresés egyenesen a nyilvántartásba fut, nem egy postafiókba. Kereső- és mobilbarát felépítés alapból.</p>
         <a class="go" href="#kepessegek">Mit tartalmaz? →</a>
       </article>
 
       <article class="svc rv">
         <span class="no">[ 03 ]&nbsp;&nbsp;&gt; rendszerfejlesztes</span>
-        <h3>Egyedi rendszerek</h3>
-        <div class="prob"><span class="pl">// a ti problémátok:</span><p>Excel-táblákban él a cég, minden rendszer külön szigeten van, és a kollégák a feladat helyett az adminisztrációval töltik a napot.</p></div>
-        <p>Cégre szabott rendszert építünk: ügyfél- és megrendeléskezelés, ütemezés, készlet, számlázás, kimutatások. Pontosan a ti folyamataitokra, nem fordítva. Nincs felhasználónkénti havidíj, nincs szállítóhoz kötöttség, és a kódbázis a tiétek.</p>
+        <h3>Egyedi üzleti rendszerek</h3>
+        <div class="prob"><span class="pl">// jellemző kiindulás:</span><p>A működés táblázatokban él, a rendszerek nem beszélnek egymással, és a munkatársak ideje aránytalanul nagy részben adminisztrációra megy el.</p></div>
+        <p>Cégre szabott rendszert építünk: ügyfél- és megrendeléskezelés, ütemezés, készlet, számlázás, kimutatások. Pontosan a meglévő működéshez igazítva, nem fordítva. Nincs felhasználónkénti havidíj, nincs szállítóhoz kötöttség, és a forráskód a Megrendelőé.</p>
         <a class="go" href="#kepessegek">Milyen modulokat? →</a>
       </article>
 
       <article class="svc rv">
         <span class="no">[ 04 ]&nbsp;&nbsp;&gt; automatizalas</span>
         <h3>Automatizálás és AI</h3>
-        <div class="prob"><span class="pl">// a ti problémátok:</span><p>A munka fele átgépelés: levélből a nyilvántartásba, onnan a számlázóba, onnan a riportba. Ugyanaz az adat, háromszor.</p></div>
-        <p>Összekötjük a rendszereket, amiket ma is használtok, és kivesszük belőlük a kézi lépéseket. Beérkező megrendelés feldolgozása, számlázóbekötés, ütemezett riportok, dokumentumgenerálás. Ahol a feladat megértést igényel, ott nyelvi modellt teszünk a folyamatba, emberi jóváhagyással.</p>
+        <div class="prob"><span class="pl">// jellemző kiindulás:</span><p>A munka jelentős része adatátgépelés: levélből a nyilvántartásba, onnan a számlázóba, onnan a kimutatásba. Ugyanaz az adat, több helyen.</p></div>
+        <p>Összekötjük a már használt rendszereket, és kiiktatjuk belőlük a kézi lépéseket. Beérkező megrendelés feldolgozása, számlázóbekötés, ütemezett riportok, dokumentumgenerálás. Ahol a feladat megértést igényel, ott nyelvi modellt teszünk a folyamatba, emberi jóváhagyással.</p>
         <a class="go" href="#kepessegek">Mire jó ez? →</a>
       </article>
 
@@ -373,7 +462,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;font-size:.875rem;co
         <div class="gh"><h3>Weboldalak és webshopok</h3><p>Ami az ügyfeleitek felé látszik, és ami mögötte dolgozik.</p></div>
         <div class="capitems">
           <div><b>Bemutatkozó és kampányoldalak</b><span>Gyors betöltés, tiszta szerkezet, konverzióra tervezve.</span></div>
-          <div><b>Saját szerkesztőfelület</b><span>A szövegeket, képeket és árakat magatok írjátok át, fejlesztő nélkül.</span></div>
+          <div><b>Saját szerkesztőfelület</b><span>A szövegek, képek és árak fejlesztő bevonása nélkül módosíthatók.</span></div>
           <div><b>Webshop</b><span>Termékkezelés, kosár, szállítási módok, és a fizetés bekötése a ti Barion- vagy SimplePay-szerződésetekbe.</span></div>
           <div><b>Ajánlatkérő és kapcsolati űrlapok</b><span>A megkeresés a nyilvántartásba fut, nem egy postafiókba vész.</span></div>
           <div><b>Ügyfélportál bejelentkezéssel</b><span>A partnereitek saját felületen látják, hol tart a megrendelésük.</span></div>
@@ -383,7 +472,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;font-size:.875rem;co
         </div>
       </div>
       <div class="capgrp rv">
-        <div class="gh"><h3>Üzleti rendszerek és modulok</h3><p>A cég napi működése egy helyen, a ti folyamataitokra szabva.</p></div>
+        <div class="gh"><h3>Üzleti rendszerek és modulok</h3><p>A vállalat napi működése egy rendszerben, a meglévő folyamatokhoz igazítva.</p></div>
         <div class="capitems">
           <div><b>Ügyfél- és partnernyilvántartás</b><span>Cégadatok, kapcsolattartók, előzmények, jegyzetek.</span></div>
           <div><b>Ajánlatkezelés tölcsérrel</b><span>Rögzítve, kiadva, megnyerve — látszik, hol akad meg az értékesítés.</span></div>
@@ -507,17 +596,50 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;font-size:.875rem;co
 <section id="folyamat">
   <div class="wrap">
     <span class="term">&gt; <b>./folyamat</b></span>
-    <h2>Hogyan dolgozunk</h2>
-    <p class="lead" style="margin-top:14px">Öt lépés, meglepetések nélkül. Minden szakasz végén tudjátok, mi történt és mi következik.</p>
+    <h2>Szállítási módszertan</h2>
+    <p class="lead" style="margin-top:14px">Öt szakasz, rögzített hatókörrel. Minden szakasz végén dokumentált, hogy mi készült el és mi következik.</p>
     <div class="steps">
       <div class="stp rv"><span class="sn">01</span><h3>Beszélgetés</h3><p>30 perc telefonon vagy videón. Átbeszéljük, hol akad meg a működés, és hogy van-e értelme együtt dolgoznunk.</p></div>
       <div class="stp rv"><span class="sn">02</span><h3>Felmérés</h3><p>Egy nap a telephelyen. Végignézzük a folyamatokat, a rendszereket és azt, hol keletkezik kézi munka.</p></div>
-      <div class="stp rv"><span class="sn">03</span><h3>Terv és fix ár</h3><p>Írásos jelentés, 90 napos terv és fix árú ajánlat. Nem óradíj: előre tudjátok, mit kaptok és mennyiért.</p></div>
-      <div class="stp rv"><span class="sn">04</span><h3>Heti egyeztetés</h3><p>A fejlesztés alatt hetente megmutatjuk, mi készült el. Nincs „majd a végén meglátjátok”.</p></div>
+      <div class="stp rv"><span class="sn">03</span><h3>Terv és fix ár</h3><p>Írásos jelentés, 90 napos ütemterv és fix árú ajánlat. Nem óradíjas elszámolás: a hatókör és az ár előre rögzített.</p></div>
+      <div class="stp rv"><span class="sn">04</span><h3>Heti egyeztetés</h3><p>A fejlesztés alatt hetente bemutatjuk az elkészült munkát. A haladás minden szakaszban ellenőrizhető.</p></div>
       <div class="stp rv"><span class="sn">05</span><h3>Átadás és kísérés</h3><p>Betanítás, dokumentáció és 30 napig díjmentes utókövetés az élesítés után.</p></div>
+    </div>
+
+    <div class="deliv rv">
+      <h3>Az átadási csomag</h3>
+      <p class="sm" style="max-width:64ch">A dokumentáció nem adminisztráció, hanem az üzemeltethetőség alapja. A projekt zárásakor az alábbiak kerülnek átadásra:</p>
+      <div class="dvs">
+        <span>hatókör- és felelősségi mátrix</span>
+        <span>rendszerarchitektúra leírása</span>
+        <span>adatfolyam-dokumentáció</span>
+        <span>kockázati napló</span>
+        <span>tesztjegyzőkönyv</span>
+        <span>felhasználói kézikönyv</span>
+        <span>rendszergazdai dokumentáció</span>
+        <span>forráskód és hozzáférések</span>
+        <span>betanítási anyag és jegyzőkönyv</span>
+      </div>
     </div>
   </div>
 </section>
+
+<section id="dontes">
+  <div class="wrap">
+    <span class="term">&gt; <b>./dontestamogatas</b></span>
+    <h2>Minden szerepkör más kérdésre keres választ</h2>
+    <p class="lead" style="margin-top:14px">Rendszerbevezetésről ritkán dönt egyetlen ember. Az alábbi szempontokat a projekt elején, írásban tisztázzuk.</p>
+    <div class="stakes">
+      <div class="stk rv"><b>Ügyvezetés</b><span>Megtérülés, bevezetési idő, mérhető üzleti eredmény, prioritási sorrend</span></div>
+      <div class="stk rv"><b>Informatika</b><span>Architektúra, integráció, üzemeltetés, hozzáférés-kezelés, tulajdonjog</span></div>
+      <div class="stk rv"><b>Pénzügy</b><span>Fix ár, fizetési ütemezés, üzemeltetési költség, számlázási és NAV-vonatkozások</span></div>
+      <div class="stk rv"><b>Jogi és adatvédelmi terület</b><span>Titoktartás, adatfeldolgozói megállapodás, az adatkezelés helye, forráskód tulajdonjoga</span></div>
+      <div class="stk rv"><b>Szakterületi vezetők</b><span>Napi használhatóság, betanítás, jogosultságok, illeszkedés a meglévő folyamatokhoz</span></div>
+      <div class="stk rv"><b>Beszerzés</b><span>Cégadatok, kapacitás, referenciák, szerződéses keretek, vállalt határidők</span></div>
+    </div>
+  </div>
+</section>
+
 
 <section style="background:var(--paper2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)">
   <div class="wrap">
@@ -534,7 +656,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;font-size:.875rem;co
         <li>A hatókör előre rögzítve</li>
         <li>Ha csúszik, az a mi kockázatunk</li>
         <li>Nincs utólagos meglepetés</li></ul></div>
-      <div class="val"><span class="vn">03</span><h3>A tiétek marad</h3><ul>
+      <div class="val"><span class="vn">03</span><h3>A Megrendelő tulajdona</h3><ul>
         <li>A forráskód a megrendelőé</li>
         <li>Az adat bármikor kiexportálható</li>
         <li>Nincs szállítóhoz kötöttség</li>
@@ -577,7 +699,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;font-size:.875rem;co
         <ul>
           <li>Weboldal- vagy webshopaudit 200 000 Ft, rendszer- és folyamataudit 300 000 – 500 000 Ft</li>
           <li>Írásos jelentés és fejlesztési terv, forintosított megtakarítással</li>
-          <li>A díjat levonjuk a projekt árából, ha velünk folytatjátok</li>
+          <li>A díj beszámít a projekt árába az együttműködés folytatása esetén</li>
         </ul>
       </div>
       <div class="rung rv">
@@ -601,7 +723,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;font-size:.875rem;co
         <ul>
           <li>Egy körülhatárolt terület saját rendszere 3 000 000 Ft-tól, éves kötöttség nélkül</li>
           <li>Teljes vállalatirányítás 30 000 000 Ft-tól, beépített betanítással, egyéves partneri szerződéssel</li>
-          <li>Heti egyeztetés, dokumentált átadás, a kódbázis a tiétek</li>
+          <li>Heti egyeztetés, dokumentált átadás, a forráskód a Megrendelőé</li>
         </ul>
       </div>
       <div class="rung rv">
@@ -613,8 +735,24 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;font-size:.875rem;co
           <li>Weboldalnál és automatizálásnál nincs éves elköteleződés</li>
         </ul>
       </div>
-      <p class="sm" style="margin-top:34px;max-width:68ch">Üzemeltetési költség: a tárhely, a domain és a külső szolgáltatói díjak közvetlenül a ti nevetekre szólnak, ezekre nem teszünk árrést. A várható havi összeget tételesen leírjuk az ajánlatban, még döntés előtt. A havi partneri díj ettől külön áll: csak akkor van rá szükség, ha folyamatos felügyeletet és fejlesztést kértek — a rendszer futtatásához önmagában nem kell. AI-feldolgozásnál a modellhasználat is így működik: használatarányos, a ti nevetekre szól, és a várható összeget előre megbecsüljük.</p>
+      <p class="sm" style="margin-top:34px;max-width:68ch">Üzemeltetési költség: a tárhely, a domain és a külső szolgáltatói díjak közvetlenül a Megrendelő nevére szólnak, ezekre nem teszünk árrést. A várható havi összeget tételesen leírjuk az ajánlatban, még döntés előtt. A havi partneri díj ettől külön áll: csak akkor van rá szükség, folyamatos felügyelet és fejlesztés igénye esetén — a rendszer futtatásához önmagában nem kell. AI-feldolgozásnál a modellhasználat is így működik: használatarányos, a Megrendelő nevére szól, és a várható összeget előre megbecsüljük.</p>
       <p class="sm" style="margin-top:16px;max-width:68ch">Az árak nettó összegek. Nem tartalmazzák a szövegírást, a fotózást, az arculattervezést és az idegen nyelvű fordítást. Weboldalnál és webshopnál két egyeztetési kör tartozik az árba. A vállalt határidő attól a naptól számít, hogy a szükséges tartalmak és hozzáférések rendelkezésre állnak.</p>
+    </div>
+
+    <div class="deliv rv">
+      <h3>Az átadási csomag</h3>
+      <p class="sm" style="max-width:64ch">A dokumentáció nem adminisztráció, hanem az üzemeltethetőség alapja. A projekt zárásakor az alábbiak kerülnek átadásra:</p>
+      <div class="dvs">
+        <span>hatókör- és felelősségi mátrix</span>
+        <span>rendszerarchitektúra leírása</span>
+        <span>adatfolyam-dokumentáció</span>
+        <span>kockázati napló</span>
+        <span>tesztjegyzőkönyv</span>
+        <span>felhasználói kézikönyv</span>
+        <span>rendszergazdai dokumentáció</span>
+        <span>forráskód és hozzáférések</span>
+        <span>betanítási anyag és jegyzőkönyv</span>
+      </div>
     </div>
   </div>
 </section>
@@ -632,7 +770,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;font-size:.875rem;co
       <details class="rv"><summary>Milyen méretű cégekkel dolgoztok?</summary><div class="ans">Elsősorban kis- és középvállalkozásokkal, jellemzően 5 és 100 fő között. Nagyvállalati bevezetésben, többcsapatos programokban nem utazunk. Ha ilyenre van szükségetek, azt az első beszélgetésen megmondjuk.</div></details>
       <details class="rv"><summary>Mi van az adatvédelemmel?</summary><div class="ans">A projekt elején rögzítjük, milyen adatot kezelünk, hol tárolódik és ki fér hozzá. Titoktartási és adatfeldolgozói megállapodást kötünk. A rendszerek EU-s adatközpontban (Frankfurt) futnak. Formális tanúsítványunk nincs, és nem is állítjuk, hogy volna. Csak olyan vállalást írunk le, amit teljesíteni is tudunk.</div></details>
       <details class="rv"><summary>Csináltatok már webshopot online fizetéssel?</summary><div class="ans">Élő webshop-referenciánk még nincs, ezt előre megmondjuk. A fizetést a ti Barion- vagy SimplePay-szerződésetekre kötjük be: a pénzforgalom és az ügyfélhitelesítés a szolgáltatónál marad, nálunk a termékek, a kosár és a szállítás. A bekötést előbb próbakörnyezetben mutatjuk meg működés közben, és csak a ti jóváhagyásotok után megy élesbe.</div></details>
-      <details class="rv"><summary>Mennyibe kerül a rendszer havi üzemeltetése?</summary><div class="ans">A futtatás díja a tárhelyszolgáltatónál keletkezik, és közvetlenül a ti nevetekre szól — nem rajtunk keresztül számlázódik, és nem teszünk rá árrést. Egy tipikus belső ügyviteli rendszernél ez néhány ezer forint havonta, a pontos összeget az ajánlatban tételesen leírjuk. Ettől külön áll a havi partneri díj, ami csak folyamatos fejlesztés esetén szükséges.</div></details>
+      <details class="rv"><summary>Mennyibe kerül a rendszer havi üzemeltetése?</summary><div class="ans">A futtatás díja a tárhelyszolgáltatónál keletkezik, és közvetlenül a Megrendelő nevére szól — nem rajtunk keresztül számlázódik, és nem teszünk rá árrést. Egy tipikus belső ügyviteli rendszernél ez néhány ezer forint havonta, a pontos összeget az ajánlatban tételesen leírjuk. Ettől külön áll a havi partneri díj, ami csak folyamatos fejlesztés esetén szükséges.</div></details>
       <details class="rv"><summary>Hol tartotok most cégként?</summary><div class="ans">Fiatal stúdió vagyunk, saját fejlesztésű termékkel és többéves fejlesztői háttérrel. Ezért dolgozunk az első ügyfeleinkkel kedvezményes áron, cserébe névért és esettanulmányért. Ezt inkább előre mondjuk meg, mint hogy utólag derüljön ki.</div></details>
     </div>
   </div>
@@ -643,9 +781,9 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;font-size:.875rem;co
     <path fill-rule="evenodd" d="M16 8H48A8 8 0 0 1 56 16V44L44 56H16A8 8 0 0 1 8 48V16A8 8 0 0 1 16 8ZM21 20H43V23.6L40.6 26H27V30H38V33.6L35.6 36H27V44H21Z"/>
   </svg>
   <div class="wrap">
-    <h2 style="margin:0 auto">Készen álltok? Beszéljünk 30 percet, ingyen.</h2>
+    <h2 style="margin:0 auto">Kezdjük egy díjmentes konzultációval.</h2>
     <p class="lead" style="max-width:62ch">Elmondjátok, hol akad meg a napi működés, mi pedig megmondjuk, mi automatizálható, nagyjából mennyiért és mennyi idő alatt. Ha nem éri meg belevágni, azt is megmondjuk.</p>
-    <a class="btn" href="#kapcsolat">Egyeztessünk időpontot</a>
+    <a class="btn" href="#kapcsolat">Kapcsolatfelvétel</a>
     <p class="sm" style="margin:18px auto 0;color:#A7ADB4">X · válasz 24 órán belül</p>
   </div>
 </section>
@@ -678,7 +816,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;font-size:.875rem;co
         <nav>
           <a href="#kepessegek">Képességek</a>
           <a href="#munkak">Munkáink</a>
-          <a href="#folyamat">Hogyan dolgozunk</a>
+          <a href="#folyamat">Módszertan</a>
           <a href="#arak">Árak</a>
           <a href="#kapcsolat">Kapcsolat</a>
         </nav>
