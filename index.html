@@ -63,7 +63,10 @@ a:hover{color:var(--copper2)}
 .wrap{max-width:1160px;margin:0 auto;padding:0 24px}
 section{padding:86px 0}
 h1,h2{font-family:var(--serif);font-weight:600;letter-spacing:-.018em;text-wrap:balance}
-h1{font-size:clamp(2.3rem,1.4rem + 3.5vw,4rem);line-height:1.05;letter-spacing:-.022em}
+h1{font-size:clamp(2.3rem,1.4rem + 3.5vw,4rem);line-height:1.05;letter-spacing:-.022em;hyphens:auto;-webkit-hyphens:auto}
+/* A focim leghosszabb szava (vallalatiranyitasig) 430px alatt kilogna: 19 betu,
+   nem torik magatol. Ezert ott kisebb a betumeret. */
+@media(max-width:430px){h1{font-size:1.9rem;letter-spacing:-.016em}}
 h2{font-size:clamp(1.7rem,1.1rem + 2.1vw,2.5rem);line-height:1.14}
 h3{font-family:var(--sans);font-weight:600;font-size:1.18rem;line-height:1.32}
 p{max-width:68ch}
@@ -361,7 +364,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;font-size:.875rem;co
   <div class="wrap">
     <div class="herogrid">
     <div>
-    <h1>Előbb a probléma.<br><em>Utána az eszköz.</em></h1>
+    <h1>Weboldaltól<br><em>a vállalatirányításig.</em></h1>
     <p class="lead">Weboldalak, webshopok, egyedi üzleti rendszerek és folyamatautomatizálás magyar vállalkozások számára. Írásos felméréssel kezdünk, fix áron dolgozunk, és a fejlesztés alatt hetente beszámolunk az elkészült munkáról.</p>
     <div class="hero-ctas">
       <a class="btn" href="#szolgaltatasok">Szolgáltatásaink</a>
