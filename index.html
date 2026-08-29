@@ -382,8 +382,8 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;font-size:.875rem;co
 
 /* --- a masodlagos akcent hasznositasa az atadasi csomagnal --- */
 .dvs span::before{background:var(--patina)}
-.deliv h3{position:relative;padding-left:16px}
-.deliv h3::before{content:"";position:absolute;left:0;top:.22em;bottom:.22em;width:3px;background:var(--patina)}
+/* A fejlec sava kikerult: alatta a kiemelt mondat rez sava viszi a hangsulyt,
+   ket egymas alatti fuggoleges vonal zsufolt volt. A patina a lista jeleiben marad. */
 
 @media(prefers-color-scheme:dark){
   :root:not([data-theme="light"]){
@@ -396,6 +396,50 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;font-size:.875rem;co
 @media(prefers-reduced-motion:reduce){
   .svc,.path{transition:none}
   .svc:hover,.path:hover{transform:none}
+}
+
+/* ===== OLVASHATOSAGI KOR ========================================
+   A szoveg eddig vegig egyforma szurke sans betuvel futott, kiemeles
+   es ritmusvaltas nelkul — ettol szaraz volt olvasni. Negy valtoztatas: */
+
+/* (1) A szekcio-bevezetok serif betuvel, nagyobb meretben. Meleget ad,
+       es osszekoti oket a serif cimekkel. */
+.lead{
+  font-family:var(--serif);
+  font-size:clamp(1.12rem,1.02rem + .5vw,1.34rem);
+  line-height:1.62;color:var(--slate);max-width:58ch;letter-spacing:-.004em}
+
+/* (2) Kiemelt mondat: a szakasz legfontosabb allitasa nagyobb betuvel,
+       rez fuggoleges vonallal. */
+.kiemelt{
+  font-family:var(--serif);font-size:clamp(1.24rem,1.1rem + .7vw,1.62rem);
+  line-height:1.4;letter-spacing:-.012em;color:var(--ink);
+  max-width:34ch;margin:0 0 22px;padding-left:22px;
+  border-left:3px solid var(--copper)}
+
+/* (3) Levego a suru reszekben. A kepessegkatalogus 59 tetele volt a
+       legtomorebb blokk, a gyors valaszok pedig tul kicsi betuvel futottak. */
+.capitems{column-gap:44px}
+.capitems > div{margin-bottom:20px;break-inside:avoid}
+.capgrp{padding:36px 0}
+.ans{font-size:1.02rem;line-height:1.68;padding:2px 0 26px;max-width:68ch}
+.svc .d{font-size:1.01rem;line-height:1.66}
+.val li{font-size:.94rem;line-height:1.58;padding:6px 0 6px 16px}
+.stp p{line-height:1.62}
+
+/* (4) Kiemeles a folyoszovegben: kulcsszamok es -fogalmak rez szinnel,
+       hogy legyen mire megallni a szemnek. */
+.svc .d b,.ans b,.pos p b,.sm b{font-weight:600;color:var(--copper);letter-spacing:-.002em}
+
+/* A nyito szekcio ket hasabja egy tipografiai csaladban maradjon:
+   a .lead serif lett, ezert a parja is az. */
+.pos .cols p{font-family:var(--serif);font-size:clamp(1.12rem,1.02rem + .5vw,1.34rem);
+  line-height:1.62;letter-spacing:-.004em}
+
+@media(max-width:560px){
+  .pos .cols p{font-size:1.08rem}
+  .kiemelt{font-size:1.16rem;padding-left:16px;max-width:none}
+  .lead{font-size:1.08rem}
 }
 </style>
 <script>document.documentElement.className+=' janim';</script>
@@ -498,7 +542,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;font-size:.875rem;co
         <span class="no">[ 01 ]&nbsp;&nbsp;&gt; digitalizacios-audit</span>
         <h3>Felmérés és helyzetkép</h3>
         <div class="prob"><span class="pl">// jellemző kiindulás:</span><p>Érzékelhetően sok a kézi munka, de nem egyértelmű, hol érdemes elkezdeni a fejlesztést — és valós a kockázat, hogy a beruházás rossz irányba indul.</p></div>
-        <p>Egy nap a telephelyen végigkísérjük a teljes utat a megrendeléstől a számláig. Írásos jelentést és 90 napos ütemtervet adunk: hol keletkezik felesleges ráfordítás, mi automatizálható, és mihez nem érdemes hozzányúlni. A dokumentum a Megrendelő tulajdona marad akkor is, ha az együttműködés nem folytatódik.</p>
+        <p><b>Egy nap a telephelyen</b> végigkísérjük a teljes utat a megrendeléstől a számláig. Írásos jelentést és <b>90 napos ütemtervet</b> adunk: hol keletkezik felesleges ráfordítás, mi automatizálható, és mihez nem érdemes hozzányúlni. A dokumentum a Megrendelő tulajdona marad akkor is, ha az együttműködés nem folytatódik.</p>
         <a class="go" href="#arak">200 000 Ft-tól, a díj beszámít →</a>
       </article>
 
@@ -514,7 +558,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;font-size:.875rem;co
         <span class="no">[ 03 ]&nbsp;&nbsp;&gt; rendszerfejlesztes</span>
         <h3>Egyedi üzleti rendszerek</h3>
         <div class="prob"><span class="pl">// jellemző kiindulás:</span><p>A működés táblázatokban él, a rendszerek nem beszélnek egymással, és a munkatársak ideje aránytalanul nagy részben adminisztrációra megy el.</p></div>
-        <p>Cégre szabott rendszert építünk: ügyfél- és megrendeléskezelés, ütemezés, készlet, számlázás, kimutatások. Pontosan a meglévő működéshez igazítva, nem fordítva. Nincs felhasználónkénti havidíj, nincs szállítóhoz kötöttség, és a forráskód a Megrendelőé.</p>
+        <p>Cégre szabott rendszert építünk: ügyfél- és megrendeléskezelés, ütemezés, készlet, számlázás, kimutatások. Pontosan a meglévő működéshez igazítva, nem fordítva. <b>Nincs felhasználónkénti havidíj</b>, nincs szállítóhoz kötöttség, és a forráskód a Megrendelőé.</p>
         <a class="go" href="#kepessegek">Milyen modulokat? →</a>
       </article>
 
@@ -658,12 +702,13 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;font-size:.875rem;co
       <div class="stp rv"><span class="sn">02</span><h3>Felmérés</h3><p>Egy nap a telephelyen. Végignézzük a folyamatokat, a rendszereket és azt, hol keletkezik kézi munka.</p></div>
       <div class="stp rv"><span class="sn">03</span><h3>Terv és fix ár</h3><p>Írásos jelentés, 90 napos ütemterv és fix árú ajánlat. Nem óradíjas elszámolás: a hatókör és az ár előre rögzített.</p></div>
       <div class="stp rv"><span class="sn">04</span><h3>Heti egyeztetés</h3><p>A fejlesztés alatt hetente bemutatjuk az elkészült munkát. A haladás minden szakaszban ellenőrizhető.</p></div>
-      <div class="stp rv"><span class="sn">05</span><h3>Átadás és kísérés</h3><p>Betanítás, dokumentáció és 30 napig díjmentes utókövetés az élesítés után.</p></div>
+      <div class="stp rv"><span class="sn">05</span><h3>Átadás és kísérés</h3><p>Betanítás, dokumentáció és <b>30 napig</b> díjmentes utókövetés az élesítés után.</p></div>
     </div>
 
     <div class="deliv rv">
       <h3>Az átadási csomag</h3>
-      <p class="sm" style="max-width:64ch">A dokumentáció nem adminisztráció, hanem az üzemeltethetőség alapja. A projekt zárásakor az alábbiak kerülnek átadásra:</p>
+      <p class="kiemelt">A dokumentáció nem adminisztráció, hanem az üzemeltethetőség alapja.</p>
+      <p class="sm" style="max-width:64ch">A projekt zárásakor az alábbiak kerülnek átadásra:</p>
       <div class="dvs">
         <span>hatókör- és felelősségi mátrix</span>
         <span>rendszerarchitektúra leírása</span>
