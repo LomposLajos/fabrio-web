@@ -333,6 +333,70 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;font-size:.875rem;co
 .irow .ia{font:400 1rem/1 var(--mono);color:var(--copper);opacity:.5}
 .irow:hover .ia{opacity:1}
 @media(max-width:560px){.irow{grid-template-columns:auto 1fr;gap:14px}.irow .ia{display:none}}
+
+/* ===== MELYSEG-KOR =============================================
+   A lap eddig kizarolag sikokbol es hajszalvonalakbol allt, ezert
+   laposnak hatott. Negy eszkoz, mindegyik visszafogottan:
+   (1) lagy emelkedes a kartyakon, (2) muszaki racs-textura a heroban,
+   (3) egy sotet szekcio kozepen a ritmusert, (4) erosebb horgonyok. */
+:root{
+  --elev1:0 1px 2px rgba(20,24,27,.045), 0 6px 18px -14px rgba(20,24,27,.16);
+  --elev2:0 2px 5px rgba(20,24,27,.06), 0 18px 38px -22px rgba(20,24,27,.26);
+  --gridline:rgba(156,74,30,.055);
+}
+
+/* --- (1) emelkedes --- */
+.svc,.path,.heroidx,.mcard{box-shadow:var(--elev1);transition:box-shadow .2s ease, transform .2s ease}
+.svc:hover,.path:hover{box-shadow:var(--elev2);transform:translateY(-2px)}
+.heroidx{box-shadow:var(--elev2)}
+
+/* --- (2) muszaki racs a heroban --- */
+.hero{position:relative;isolation:isolate}
+.hero::before{
+  content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;
+  background-image:
+    linear-gradient(var(--gridline) 1px,transparent 1px),
+    linear-gradient(90deg,var(--gridline) 1px,transparent 1px);
+  background-size:46px 46px;background-position:center top;
+  -webkit-mask-image:radial-gradient(120% 90% at 24% 18%,#000 0%,rgba(0,0,0,.55) 42%,transparent 78%);
+  mask-image:radial-gradient(120% 90% at 24% 18%,#000 0%,rgba(0,0,0,.55) 42%,transparent 78%);
+}
+
+/* --- (3) ritmus: a dontestamogatas sotet savva valik --- */
+#dontes{background:#1B2024;color:#E8E4DE;border-top:0}
+#dontes h2{color:#FBFAF8}
+#dontes .lead{color:#A7ADB4}
+#dontes .term{color:#8A939C}
+#dontes .term b{color:#E0905F}
+#dontes .stakes{border-top-color:#333B43}
+#dontes .stk{border-bottom-color:#333B43}
+#dontes .stk:nth-child(odd){border-right-color:#333B43}
+#dontes .stk b{color:#FBFAF8}
+#dontes .stk span{color:#A7ADB4}
+
+/* --- (4) erosebb horgonyok a folyamat-lepeseknel --- */
+.stp .sn{
+  display:inline-grid;place-items:center;width:34px;height:34px;margin-bottom:14px;
+  background:var(--coppersoft);color:var(--copper);font:700 .82rem/1 var(--mono);
+  letter-spacing:.02em;clip-path:var(--cut)}
+
+/* --- a masodlagos akcent hasznositasa az atadasi csomagnal --- */
+.dvs span::before{background:var(--patina)}
+.deliv h3{position:relative;padding-left:16px}
+.deliv h3::before{content:"";position:absolute;left:0;top:.22em;bottom:.22em;width:3px;background:var(--patina)}
+
+@media(prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --elev1:0 1px 2px rgba(0,0,0,.45), 0 8px 22px -16px rgba(0,0,0,.8);
+    --elev2:0 2px 6px rgba(0,0,0,.5), 0 20px 44px -24px rgba(0,0,0,.9);
+    --gridline:rgba(224,144,95,.06);
+  }
+  :root:not([data-theme="light"]) #dontes{background:#20262B}
+}
+@media(prefers-reduced-motion:reduce){
+  .svc,.path{transition:none}
+  .svc:hover,.path:hover{transform:none}
+}
 </style>
 <script>document.documentElement.className+=' janim';</script>
 </head>
