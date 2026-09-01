@@ -17,6 +17,10 @@
     --coppersoft:#241A14; --patina:#4E9C8C; --patinasoft:#16241F; --focus:#E0905F;
   }
   :root:not([data-theme="light"]) header.top{background:rgba(20,24,27,.93)}
+  :root:not([data-theme="light"]) .btn,
+  :root:not([data-theme="light"]) .navl .btn{background:var(--ink);color:#14181B;border-color:var(--ink)}
+  :root:not([data-theme="light"]) .btn:hover,
+  :root:not([data-theme="light"]) .navl .btn:hover{background:var(--copper);border-color:var(--copper);color:#14181B}
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
@@ -38,11 +42,40 @@ header.top{position:sticky;top:0;z-index:40;background:rgba(251,250,248,.93);
 .navl{display:flex;gap:28px;align-items:center}
 .navl a{color:var(--slate);text-decoration:none;font-size:.94rem;font-weight:500}
 .navl a:hover{color:var(--ink)}
-.navl .btn{padding:9px 18px;font-size:.88rem}
+/* A .navl a{color:slate} specifikusabb volt a .btn{color:paper}-nel, ezert a
+   gomb szovege szurke lett a sotet kitoltesen (2,84:1). Explicit felulirás. */
+.navl .btn{padding:9px 18px;font-size:.88rem;color:var(--paper)}
+.navl .btn:hover{color:var(--paper);background:var(--copper);border-color:var(--copper)}
 .btn{display:inline-block;background:var(--ink);color:var(--paper);text-decoration:none;
   padding:13px 26px;font-weight:600;font-size:.96rem;border:1px solid var(--ink);border-radius:2px}
 .btn:hover{background:var(--copper);border-color:var(--copper)}
-@media(max-width:820px){.navl a:not(.btn){display:none}}
+/* ---- mobil navigacio ----
+   Korabban 820px alatt a menupontok eltuntek, es semmi nem lepett a helyukbe:
+   telefonon nem lehetett navigalni. Progressziv fejlesztes: a gomb csak akkor
+   jelenik meg, ha a .janim osztaly beallt (fejlec-szkript). */
+.menugomb{display:none;background:none;border:1px solid var(--line);color:var(--ink);
+  width:44px;height:44px;place-items:center;cursor:pointer;padding:0;border-radius:2px}
+.menugomb:hover{border-color:var(--copper);color:var(--copper)}
+.menugomb svg{width:20px;height:20px;stroke:currentColor;fill:none;stroke-width:1.7;stroke-linecap:round}
+.menugomb .x{display:none}
+.menugomb[aria-expanded="true"] .x{display:block}
+.menugomb[aria-expanded="true"] .h{display:none}
+@media(max-width:1020px){
+  .janim .menugomb{display:grid}
+  .navl{flex-wrap:wrap;gap:12px 18px;justify-content:flex-end}
+  .janim .navl{
+    position:absolute;top:100%;left:0;right:0;flex-direction:column;align-items:stretch;
+    gap:0;padding:6px 0 12px;background:var(--paper);border-bottom:1px solid var(--line);
+    box-shadow:0 18px 38px -22px rgba(20,24,27,.3);max-height:calc(100vh - 76px);overflow-y:auto;
+    opacity:0;visibility:hidden;transform:translateY(-6px);
+    transition:opacity .18s ease,transform .18s ease,visibility .18s}
+  .janim .navl.nyit{opacity:1;visibility:visible;transform:none}
+  .janim .navl a{padding:14px 24px;font-size:1.02rem;border-bottom:1px solid var(--line)}
+  .janim .navl a:last-of-type{border-bottom:0}
+  .janim .navl .btn{margin:14px 24px 2px;text-align:center;border-bottom:0}
+  header.top .tin{position:relative}
+}
+@media(prefers-reduced-motion:reduce){.janim .navl{transition:none}}
 
 /* cikkfej */
 .chead{padding:64px 0 0;border-bottom:1px solid var(--line)}
@@ -132,3 +165,21 @@ footer a:hover{color:var(--ink)}
   .art h2{font-size:1.42rem;margin-top:40px}
 }
 @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{transition:none!important}}
+
+/* ===== NYOMTATAS ================================================ */
+@media print{
+  header.top,.menugomb,.more,.side{display:none!important}
+  body{background:#fff;color:#000;font-size:11pt;line-height:1.5}
+  .wrap{max-width:none;padding:0 12mm}
+  .chead{padding:6mm 0 0;border-bottom:1pt solid #ccc}
+  .body{display:block;padding:8mm 0}
+  .art{max-width:none}
+  h1{font-size:22pt}
+  .lede{font-size:12pt;color:#333;margin-bottom:8mm}
+  .art h2{font-size:14pt;break-after:avoid;margin-top:8mm}
+  .art p,.art li{color:#000}
+  .art table,.art ul,.zar{break-inside:avoid}
+  .zar{background:#f5f5f5!important;border-left:2pt solid #999}
+  .back,.meta{display:none}
+  footer{border-top:1pt solid #ccc;font-size:9pt}
+}

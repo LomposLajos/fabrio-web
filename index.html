@@ -13,6 +13,12 @@
 <meta property="og:description" content="Weboldalak, webshopok, egyedi üzleti rendszerek és folyamatautomatizálás magyar kis- és középvállalkozásoknak. Felméréstől a kész rendszerig, fix áron.">
 <meta property="og:locale" content="hu_HU">
 <meta name="twitter:card" content="summary_large_image">
+<meta property="og:image" content="https://lomposlajos.github.io/fabrio-web/megosztas.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Fabrio — Weboldaltól a vállalatirányításig.">
+<meta property="og:url" content="https://lomposlajos.github.io/fabrio-web/">
+<meta name="twitter:image" content="https://lomposlajos.github.io/fabrio-web/megosztas.png">
 <!-- Strukturalt adat. CSAK valos adatok szerepelnek benne: cim, adoszam es telefonszam
      szandekosan nincs, amig azok hivatalosan nem allnak rendelkezesre. -->
 <script type="application/ld+json">
@@ -126,11 +132,11 @@ header.top{position:sticky;top:0;z-index:60;background:rgba(251,250,248,.93);bac
 .capgrp:last-child{border-bottom:1px solid var(--line)}
 .capgrp .gh h3{margin-bottom:6px}
 .capgrp .gh p{font-size:.875rem;color:var(--slate);max-width:34ch}
-.capitems{columns:2;column-gap:36px}
-.capitems div{break-inside:avoid;padding:7px 0 7px 18px;position:relative;font-size:.95rem;line-height:1.5}
-.capitems div::before{content:"";position:absolute;left:0;top:14px;width:9px;height:1px;background:var(--copper)}
-.capitems span{color:var(--slate);font-size:.875rem;display:block}
-@media(max-width:980px){.capgrp{grid-template-columns:1fr;gap:14px}.capitems{columns:1}}
+
+
+
+
+@media(max-width:980px){.capgrp{grid-template-columns:1fr;gap:14px}}
 
 .works{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:36px;align-items:start}
 .works .chrome img{max-height:340px;object-fit:cover;object-position:top center}
@@ -418,8 +424,8 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;font-size:.875rem;co
 
 /* (3) Levego a suru reszekben. A kepessegkatalogus 59 tetele volt a
        legtomorebb blokk, a gyors valaszok pedig tul kicsi betuvel futottak. */
-.capitems{column-gap:44px}
-.capitems > div{margin-bottom:20px;break-inside:avoid}
+
+
 .capgrp{padding:36px 0}
 .ans{font-size:1.02rem;line-height:1.68;padding:2px 0 26px;max-width:68ch}
 .svc .d{font-size:1.01rem;line-height:1.66}
@@ -441,42 +447,13 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;font-size:.875rem;co
   .lead{font-size:1.08rem}
 }
 
-/* ===== VIZUALIS RETEG ===========================================
-   A lapon eddig egyetlen abra sem volt, csak szoveg es vonalak.
-   Ket eszkoz: ikon a szolgaltataskartyakon, es egy integracios abra,
-   ami megmutatja, mit jelent a gyakorlatban az osszekotott mukodes. */
+/* ===== IKONOK ===================================================
+   Vonalas ikon a negy szolgaltataskartyan, hogy a lap teteje ne
+   csak szovegbol alljon. */
 
 .svcikon{width:30px;height:30px;color:var(--copper);margin-bottom:16px;
   stroke:currentColor;fill:none;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
 
-/* --- integracios abra --- */
-.abra{margin:0 0 56px;border:1px solid var(--line);background:var(--paper);
-  padding:34px 30px 26px;clip-path:var(--cut);box-shadow:var(--elev1)}
-.abra figcaption{font:600 .72rem/1 var(--mono);letter-spacing:.13em;text-transform:uppercase;
-  color:var(--copper);margin-bottom:6px}
-.abra .cim{font-family:var(--serif);font-size:1.28rem;letter-spacing:-.012em;margin-bottom:22px}
-.abra .gorgo{overflow-x:auto;-webkit-overflow-scrolling:touch}
-.abra svg{width:100%;height:auto;display:block;max-width:940px;margin:0 auto;min-width:700px}
-.abra .huzd{display:none;font:600 .7rem/1 var(--mono);letter-spacing:.1em;
-  text-transform:uppercase;color:var(--slate);margin-top:10px}
-@media(max-width:760px){.abra .huzd{display:block}}
-.abra .jelm{margin-top:20px;font-size:.86rem;color:var(--slate);max-width:70ch;line-height:1.6}
-.abra .jelm b{color:var(--copper);font-weight:600}
-/* az abra sajat szinei a temaval fordulnak */
-.abra .dob{fill:var(--paper2);stroke:var(--line);stroke-width:1.2}
-.abra .dobfo{fill:var(--coppersoft);stroke:var(--copper);stroke-width:1.4}
-.abra .vez{stroke:var(--line);stroke-width:1.4;fill:none}
-.abra .vezfo{stroke:var(--copper);stroke-width:1.6;fill:none;opacity:.8}
-.abra .cimke{fill:var(--ink);font:500 13px var(--sans)}
-.abra .cimkeh{fill:var(--slate);font:500 11px var(--mono);letter-spacing:.08em}
-.abra .cimkefo{fill:var(--copper2);font:600 13.5px var(--sans)}
-@media(prefers-color-scheme:dark){
-  :root:not([data-theme="light"]) .abra .cimkefo{fill:var(--ember)}
-}
-@media(max-width:760px){
-  .abra{padding:26px 20px 20px}
-  .abra .cim{font-size:1.12rem}
-}
 
 /* ===== MOBIL NAVIGACIO ==========================================
    Korabban 820px alatt a menupontok egyszeruen eltuntek, es SEMMI nem
@@ -510,6 +487,68 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;font-size:.875rem;co
   header.top .nav{position:relative}
 }
 @media(prefers-reduced-motion:reduce){.janim .navl{transition:none}}
+
+/* ===== KEPESSEGKATALOGUS ========================================
+   Korabban `columns:2` folyatta a tartalmat: a ket hasab tetelei
+   elcsusztak egymashoz kepest, a terkozok egyenetlenek lettek, es az
+   egesz formazatlan felsorolasnak latszott. Most racs: a sorok
+   egymashoz igazodnak, minden tetel folott hajszalvonal, mint egy
+   muszaki adatlapon. */
+.capitems{display:grid;grid-template-columns:1fr 1fr;gap:0 46px;align-content:start}
+.capitems > div{
+  padding:15px 0 16px;border-top:1px solid var(--line);
+  font-size:.95rem;line-height:1.5}
+/* az elso sor ket tetelenek felso vonala a csoport-elvalasztoval esne egybe */
+.capitems > div:nth-child(-n+2){border-top:0;padding-top:2px}
+.capitems b{display:block;font-weight:600;font-size:.97rem;letter-spacing:-.005em;
+  color:var(--ink);margin-bottom:3px}
+.capitems span{display:block;color:var(--slate);font-size:.895rem;line-height:1.56}
+@media(max-width:900px){
+  .capitems{grid-template-columns:1fr;gap:0}
+  .capitems > div:nth-child(-n+2){border-top:1px solid var(--line);padding-top:15px}
+  .capitems > div:first-child{border-top:0;padding-top:2px}
+}
+
+/* ===== NYOMTATAS ================================================
+   Egy dokumentum-jellegu lapot (arletra, modszertan, atadasi csomag)
+   a cegvezetok kinyomtatjak vagy PDF-be mentik. Ragados fejlec es
+   sotet savok nelkul, tiszta feher alapon. */
+@media print{
+  header.top,.menugomb,.hero-ctas,.heroidx,.hnote,#kapcsolat .btn{display:none!important}
+  body{background:#fff;color:#000;font-size:11pt;line-height:1.45}
+  .wrap{max-width:none;padding:0 12mm}
+  section{padding:14mm 0;break-inside:auto}
+  .hero{padding:8mm 0 10mm;border-bottom:1pt solid #ccc}
+  .hero::before{display:none}
+  h1{font-size:24pt}
+  h2{font-size:15pt;break-after:avoid}
+  h3{font-size:11.5pt;break-after:avoid}
+  .lead,.pos .cols p{font-size:11.5pt}
+  /* a sotet savok papiron feketek lennenek */
+  .dark,#dontes{background:#fff!important;color:#000!important;border-top:1pt solid #ccc}
+  .dark h2,#dontes h2,#dontes .stk b{color:#000!important}
+  .dark .lead,#dontes .lead,#dontes .stk span{color:#333!important}
+  .stampbg{display:none}
+  /* kartyak, racsok: keret helyett vekony vonal, ne toredezzenek */
+  .svc,.path,.rung,.capgrp,.stk,.val,.stp{break-inside:avoid;box-shadow:none!important}
+  .svc,.path{border:1pt solid #ddd;clip-path:none}
+  .svcs,.paths,.vals{display:block}
+  .svc,.path,.val{margin-bottom:6mm}
+  .capitems{display:block;columns:2;column-gap:10mm}
+  .capitems > div{break-inside:avoid;border-top:1pt solid #eee}
+  .steps{display:block}
+  .stp{margin-bottom:5mm;border-left:2pt solid #999;padding-left:5mm}
+  .stp .sn{background:none;color:#000;width:auto;height:auto;display:inline;
+    clip-path:none;font-weight:700}
+  details{break-inside:avoid}
+  details > div{display:block!important}
+  summary::after{display:none}
+  .rv{opacity:1!important;transform:none!important}
+  a{color:#000;text-decoration:none}
+  /* a hivatkozasok cime kerüljon a szoveg melle */
+  main a[href^="http"]::after,main a[href^="cikkek"]::after{content:" (" attr(href) ")";font-size:9pt;color:#555}
+  footer{border-top:1pt solid #ccc;padding-top:6mm;font-size:9pt}
+}
 </style>
 <script>document.documentElement.className+=' janim';</script>
 </head>
@@ -659,54 +698,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;font-size:.875rem;co
     <p class="lead" style="margin-top:14px">Ez a lista azt mutatja, milyen elemekből építkezünk. A legtöbb mögött már elkészült, működő megoldás áll, a többit ugyanezekből az építőkockákból rakjuk össze. Ha valami hiányzik innen, érdemes rákérdezni.</p>
 
     
-    <figure class="abra rv">
-      <figcaption>&gt; ./osszekotott-mukodes</figcaption>
-      <div class="cim">Mit jelent a gyakorlatban az összekötött működés</div>
-      <div class="gorgo">
-      <svg viewBox="0 0 900 300" role="img" aria-label="Diagram: a beérkező adatok egy rendszerbe futnak, onnan automatikusan keletkeznek a kimenetek.">
-        <text class="cimkeh" x="14" y="26">BEÉRKEZŐ</text>
-        <text class="cimkeh" x="368" y="26">A CÉG RENDSZERE</text>
-        <text class="cimkeh" x="742" y="26">AUTOMATIKUS KIMENET</text>
-
-        <rect class="dob" x="14" y="48" width="176" height="46" rx="3"/>
-        <text class="cimke" x="34" y="76">Megrendelő e-mail</text>
-        <rect class="dob" x="14" y="108" width="176" height="46" rx="3"/>
-        <text class="cimke" x="34" y="136">Weboldali űrlap</text>
-        <rect class="dob" x="14" y="168" width="176" height="46" rx="3"/>
-        <text class="cimke" x="34" y="196">Webshop-rendelés</text>
-        <rect class="dob" x="14" y="228" width="176" height="46" rx="3"/>
-        <text class="cimke" x="34" y="256">Táblázat, papír</text>
-
-        <path class="vez" d="M190 71 C 250 71, 260 130, 322 146"/>
-        <path class="vez" d="M190 131 C 250 131, 262 141, 322 150"/>
-        <path class="vez" d="M190 191 C 250 191, 262 165, 322 156"/>
-        <path class="vez" d="M190 251 C 250 251, 260 176, 322 160"/>
-
-        <rect class="dobfo" x="322" y="86" width="256" height="134" rx="4"/>
-        <text class="cimkefo" x="350" y="120">Egy nyilvántartás</text>
-        <text class="cimke" x="350" y="148">partner · megrendelés</text>
-        <text class="cimke" x="350" y="172">állapot · felelős</text>
-        <text class="cimke" x="350" y="196">jogosultság · napló</text>
-
-        <path class="vezfo" d="M578 128 C 640 128, 650 71, 710 71"/>
-        <path class="vezfo" d="M578 143 C 640 143, 650 131, 710 131"/>
-        <path class="vezfo" d="M578 158 C 640 158, 650 191, 710 191"/>
-        <path class="vezfo" d="M578 173 C 640 173, 650 251, 710 251"/>
-
-        <rect class="dob" x="710" y="48" width="176" height="46" rx="3"/>
-        <text class="cimke" x="730" y="76">Számla a számlázóban</text>
-        <rect class="dob" x="710" y="108" width="176" height="46" rx="3"/>
-        <text class="cimke" x="730" y="136">Vezetői kimutatás</text>
-        <rect class="dob" x="710" y="168" width="176" height="46" rx="3"/>
-        <text class="cimke" x="730" y="196">Megbízás, díjbekérő</text>
-        <rect class="dob" x="710" y="228" width="176" height="46" rx="3"/>
-        <text class="cimke" x="730" y="256">Értesítés a felelősnek</text>
-      </svg>
-      </div>
-      <p class="huzd">&larr; húzza oldalra az ábrát &rarr;</p>
-      <p class="jelm">Az adat <b>egyszer kerül be</b>, és onnantól minden kimenet ebből az egy helyről keletkezik. Ez szünteti meg a kétszeres adatbevitelt, és ettől nem tér el egymástól a nyilvántartás, a számlázó és a kimutatás.</p>
-    </figure>
-    <div class="caps">
+        <div class="caps">
       <div class="capgrp rv">
         <div class="gh"><h3>Weboldalak és webshopok</h3><p>Ami az ügyfelek felé látszik, és ami mögötte dolgozik.</p></div>
         <div class="capitems">

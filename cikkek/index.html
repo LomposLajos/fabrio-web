@@ -1,10 +1,16 @@
 <!doctype html>
 <html lang="hu">
 <head>
+<script>document.documentElement.className+=' janim';</script>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="robots" content="noindex, nofollow">
 <title>Tudnivalók — Fabrio</title>
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tudnivalók — Fabrio">
+<meta property="og:locale" content="hu_HU">
+<meta property="og:image" content="https://lomposlajos.github.io/fabrio-web/megosztas.png">
+<meta name="twitter:card" content="summary_large_image">
 <meta name="description" content="Tudnivalók szoftverfejlesztésről cégvezetőknek: árszintek, üzemeltetési költség, mikor ne készüljön egyedi szoftver, felmérés, automatizálás.">
 <link rel="stylesheet" href="cikk.css">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%239C4A1E' fill-rule='evenodd' d='M16 8H48A8 8 0 0 1 56 16V44L44 56H16A8 8 0 0 1 8 48V16A8 8 0 0 1 16 8ZM21 20H43V23.6L40.6 26H27V30H38V33.6L35.6 36H27V44H21Z'/%3E%3C/svg%3E">
@@ -14,9 +20,15 @@
 <header class="top">
   <div class="wrap tin">
     <a class="brand" href="../index.html"><svg class="mark" viewBox="0 0 64 64" aria-hidden="true"><path fill="#9C4A1E" fill-rule="evenodd" d="M16 8H48A8 8 0 0 1 56 16V44L44 56H16A8 8 0 0 1 8 48V16A8 8 0 0 1 16 8ZM21 20H43V23.6L40.6 26H27V30H38V33.6L35.6 36H27V44H21Z"/></svg><span class="bname">FABRIO</span></a>
-    <nav class="navl">
+    <button class="menugomb" id="menugomb" type="button"
+            aria-expanded="false" aria-controls="fomenu" aria-label="Menü megnyitása">
+      <svg class="h" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
+      <svg class="x" viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <nav class="navl" id="fomenu">
       <a href="../index.html#szolgaltatasok">Szolgáltatások</a>
       <a href="../index.html#kepessegek">Képességek</a>
+      <a href="../index.html#folyamat">Módszertan</a>
       <a href="index.html">Tudnivalók</a>
       <a href="../index.html#arak">Árak</a>
       <a class="btn" href="../index.html#kapcsolat">Kapcsolat</a>
@@ -37,5 +49,20 @@
     <span><a href="index.html">Tudnivalók</a> · <a href="../index.html">Főoldal</a></span>
   </div>
 </footer>
+<script>
+(function(){
+  var g=document.getElementById('menugomb'), n=document.getElementById('fomenu');
+  if(!g||!n) return;
+  function allit(ny){ n.classList.toggle('nyit',ny); g.setAttribute('aria-expanded',ny?'true':'false');
+    g.setAttribute('aria-label',ny?'Menü bezárása':'Menü megnyitása'); }
+  g.addEventListener('click',function(e){ e.stopPropagation(); allit(!n.classList.contains('nyit')); });
+  n.addEventListener('click',function(e){ if(e.target.closest('a')) allit(false); });
+  document.addEventListener('click',function(e){
+    if(n.classList.contains('nyit') && !n.contains(e.target) && !g.contains(e.target)) allit(false); });
+  document.addEventListener('keydown',function(e){
+    if(e.key==='Escape' && n.classList.contains('nyit')){ allit(false); g.focus(); } });
+  addEventListener('resize',function(){ if(innerWidth>1020) allit(false); });
+})();
+</script>
 </body>
 </html>

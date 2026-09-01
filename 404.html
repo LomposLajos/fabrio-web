@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="hu">
+<head>
+<script>document.documentElement.className+=' janim';</script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Nincs ilyen oldal — Fabrio</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cpath fill='%239C4A1E' fill-rule='evenodd' d='M16 8H48A8 8 0 0 1 56 16V44L44 56H16A8 8 0 0 1 8 48V16A8 8 0 0 1 16 8ZM21 20H43V23.6L40.6 26H27V30H38V33.6L35.6 36H27V44H21Z'/%3E%3C/svg%3E">
+<style>
+:root{
+  --paper:#FBFAF8; --paper2:#F3F0EA; --line:#E2DCD2;
+  --ink:#14181B; --slate:#58616B; --copper:#9C4A1E; --coppersoft:#F6EBE3;
+  --focus:#B4551F;
+  --serif:ui-serif,"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,"Times New Roman",serif;
+  --sans:system-ui,-apple-system,"Segoe UI Variable Text","Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"Cascadia Mono","SF Mono","Segoe UI Mono",Consolas,"Liberation Mono",monospace;
+}
+@media(prefers-color-scheme:dark){
+  :root:not([data-theme="light"]){
+    --paper:#14181B; --paper2:#1B2024; --line:#333B43;
+    --ink:#E8E4DE; --slate:#A7ADB4; --copper:#E0905F; --coppersoft:#241A14; --focus:#E0905F;
+  }
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:var(--paper);color:var(--ink);font-family:var(--sans);
+  font-size:17px;line-height:1.68;min-height:100vh;display:grid;place-items:center;
+  padding:40px 24px;-webkit-font-smoothing:antialiased}
+.doboz{max-width:600px;width:100%}
+.mark{width:38px;height:38px;margin-bottom:34px}
+.kod{font:600 .74rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;
+  color:var(--copper);margin-bottom:14px;display:block}
+h1{font-family:var(--serif);font-weight:600;font-size:clamp(1.9rem,1.3rem+2.4vw,2.7rem);
+  line-height:1.14;letter-spacing:-.02em;margin-bottom:18px}
+p{color:var(--slate);max-width:52ch;margin-bottom:32px}
+.linkek{display:flex;flex-wrap:wrap;gap:12px}
+.btn{display:inline-block;background:var(--ink);color:var(--paper);text-decoration:none;
+  padding:14px 26px;font-weight:600;font-size:.96rem;border:1px solid var(--ink);
+  border-radius:2px;transition:background .15s,border-color .15s}
+.btn:hover{background:var(--copper);border-color:var(--copper);color:var(--paper)}
+.btn-2{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn-2:hover{background:transparent;color:var(--copper);border-color:var(--copper)}
+@media(prefers-color-scheme:dark){
+  :root:not([data-theme="light"]) .btn{background:var(--ink);color:#14181B;border-color:var(--ink)}
+  :root:not([data-theme="light"]) .btn:hover{background:var(--copper);border-color:var(--copper);color:#14181B}
+  :root:not([data-theme="light"]) .btn-2{background:transparent;color:var(--ink);border-color:var(--line)}
+  :root:not([data-theme="light"]) .btn-2:hover{color:var(--copper);border-color:var(--copper);background:transparent}
+}
+a:focus-visible,.btn:focus-visible{outline:2px solid var(--focus);outline-offset:2px}
+</style>
+</head>
+<body>
+  <main class="doboz">
+    <svg class="mark" viewBox="0 0 64 64" role="img" aria-label="Fabrio">
+      <path fill="#9C4A1E" fill-rule="evenodd" d="M16 8H48A8 8 0 0 1 56 16V44L44 56H16A8 8 0 0 1 8 48V16A8 8 0 0 1 16 8ZM21 20H43V23.6L40.6 26H27V30H38V33.6L35.6 36H27V44H21Z"/>
+    </svg>
+    <span class="kod">404 &middot; nincs ilyen oldal</span>
+    <h1>Ez a cím nem vezet sehova.</h1>
+    <p>Elképzelhető, hogy elírás történt a címsorban, vagy az oldal azóta átkerült máshova. A főoldalról minden elérhető.</p>
+    <div class="linkek">
+      <a class="btn" href="/fabrio-web/">Vissza a főoldalra</a>
+      <a class="btn btn-2" href="/fabrio-web/cikkek/">Tudnivalók</a>
+    </div>
+  </main>
+</body>
+</html>
