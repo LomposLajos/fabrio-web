@@ -98,8 +98,11 @@ h1{font-family:var(--serif);font-weight:600;font-size:clamp(2rem,4.1vw,3rem);
 .art h2:first-child{margin-top:0}
 .art p{margin-bottom:20px}
 .art ul{list-style:none;margin:24px 0 28px;padding:0}
-.art ul li{padding-left:26px;position:relative;margin-bottom:13px;color:var(--slate)}
-.art ul li::before{content:"";position:absolute;left:0;top:.72em;width:11px;height:1px;background:var(--copper)}
+/* Egyseges jelolo a fooldallal: pontos negyzet, flex-igazitassal.
+   A korabbi 11px-es, 1px magas vonalka mereteben es magassagaban is
+   eltert a tobbi listatol, es kepernyosuruségtol fuggoen valtozott. */
+.art ul li{display:flex;gap:11px;margin-bottom:13px;color:var(--slate)}
+.art ul li::before{content:"";flex:none;width:4px;height:4px;margin-top:.62em;background:var(--copper)}
 .art table{width:100%;border-collapse:collapse;margin:28px 0 32px;font-size:.94rem}
 .art th{text-align:left;font:600 .72rem/1.4 var(--mono);letter-spacing:.1em;text-transform:uppercase;
   color:var(--copper);padding:0 14px 11px 0;border-bottom:1px solid var(--line);vertical-align:bottom}

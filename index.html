@@ -169,7 +169,7 @@ header.top{position:sticky;top:0;z-index:60;background:rgba(251,250,248,.93);bac
 .val h3{font-size:1.08rem;margin-bottom:14px}
 .val ul{list-style:none}
 .val li{font-size:.9rem;color:var(--slate);padding:5px 0 5px 16px;position:relative;line-height:1.5}
-.val li::before{content:"";position:absolute;left:0;top:13px;width:8px;height:1px;background:var(--copper)}
+
 @media(max-width:980px){.vals{grid-template-columns:1fr 1fr}}
 @media(max-width:640px){.vals{grid-template-columns:1fr}}
 
@@ -180,7 +180,7 @@ header.top{position:sticky;top:0;z-index:60;background:rgba(251,250,248,.93);bac
 .price{font-family:var(--serif);font-size:1.75rem;font-weight:600;font-variant-numeric:tabular-nums;line-height:1.15;margin-top:4px}
 .price small{font-family:var(--sans);font-size:.95rem;font-weight:400;color:var(--slate)}
 .rung ul li{list-style:none;font-size:.94rem;color:var(--slate);padding:4px 0 4px 16px;position:relative}
-.rung ul li::before{content:"";position:absolute;left:0;top:14px;width:8px;height:1px;background:var(--copper)}
+
 @media(max-width:800px){.rung{grid-template-columns:1fr;gap:12px}}
 
 .faq{margin-top:40px;max-width:840px}
@@ -281,7 +281,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;font-size:.875rem;co
 .deliv h3{font-size:1.24rem;margin-bottom:10px}
 .dvs{display:grid;grid-template-columns:repeat(3,1fr);gap:12px 26px;margin-top:26px}
 .dvs span{font-size:.93rem;color:var(--slate);padding-left:22px;position:relative;line-height:1.5}
-.dvs span::before{content:"";position:absolute;left:0;top:.55em;width:9px;height:1px;background:var(--copper)}
+
 .stakes{display:grid;grid-template-columns:repeat(2,1fr);gap:0;margin-top:40px;border-top:1px solid var(--line)}
 .stk{display:grid;grid-template-columns:minmax(150px,.44fr) 1fr;gap:24px;padding:20px 4px;border-bottom:1px solid var(--line);align-items:baseline}
 .stk b{font-size:1rem;letter-spacing:-.01em}
@@ -386,7 +386,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;font-size:.875rem;co
   letter-spacing:.02em;clip-path:var(--cut)}
 
 /* --- a masodlagos akcent hasznositasa az atadasi csomagnal --- */
-.dvs span::before{background:var(--patina)}
+
 /* A fejlec sava kikerult: alatta a kiemelt mondat rez sava viszi a hangsulyt,
    ket egymas alatti fuggoleges vonal zsufolt volt. A patina a lista jeleiben marad. */
 
@@ -549,6 +549,23 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;font-size:.875rem;co
   main a[href^="http"]::after,main a[href^="cikkek"]::after{content:" (" attr(href) ")";font-size:9pt;color:#555}
   footer{border-top:1pt solid #ccc;padding-top:6mm;font-size:9pt}
 }
+
+/* ===== FELSOROLAS-JELOLOK =======================================
+   Korabban negy kulonbozo valtozat elt egymas mellett: 8, 9 es 11 px
+   szeles, 1 px magas vonalkak, ketfele fuggoleges igazitassal (fix
+   pixel es em), ket szinben. Az 1 px magassag ráadásul a kepernyo
+   pixelsurusegetol fuggoen hol hajszalnyi, hol vaskos lett.
+   Most egyetlen, pontos negyzet. Flex-elrendezes, tehat a jelolo a
+   szoveg folyamaban ul es minden betumeretnel ugyanoda igazodik. */
+.val li,
+.rung ul li,
+.dvs span{
+  display:flex;gap:11px;padding-left:0;position:static}
+.val li::before,
+.rung ul li::before,
+.dvs span::before{
+  content:"";flex:none;width:4px;height:4px;margin-top:.58em;
+  background:var(--copper);position:static}
 </style>
 <script>document.documentElement.className+=' janim';</script>
 </head>
