@@ -214,6 +214,11 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;font-size:.875rem;co
 .footgrid a{color:var(--ink);text-decoration:none;font-weight:500}
 .footgrid a:hover{color:var(--copper)}
 .copy{margin-top:40px;padding-top:20px;border-top:1px solid var(--line);font-size:.8rem;display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.copy a{color:var(--ink);text-decoration:none;font-weight:500}
+.copy a:hover{color:var(--copper)}
+/* A sotet savban a cim a fo konverzios elem: teljes kontraszt, lathato link-jelzes. */
+.dark .cim a{color:#E8E4DE;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
+.dark .cim a:hover{color:#E0905F}
 @media(max-width:800px){.footgrid{grid-template-columns:1fr;gap:28px}}
 
 /* Mobilon a nagy szekcio-terkozok ures savokat hagynanak. */
@@ -1049,7 +1054,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;font-size:.875rem;co
       <details class="rv"><summary>Kié lesz a kód és az adat?</summary><div class="ans">Mindkettő a megrendelőé. A forráskódot átadjuk, nem licencbe adjuk. Az adat bármikor kiexportálható. A szerződés egyetlen pontja sem akadályozza a továbblépést.</div></details>
       <details class="rv"><summary>Miért olcsóbb, mint egy hagyományos ügynökség?</summary><div class="ans">Mert AI-vezérelt fejlesztéssel dolgozunk: a mechanikus munka nagy részét gép végzi, a tervezés és az ellenőrzés marad emberi feladat. Ehhez jön, hogy nincs többszintű projektmenedzsment, amelynek költségét tovább kellene hárítanunk. A módszer határait is elmondjuk: nem vállalunk éjjel-nappali ügyeletet, és egyszerre kevés projekten dolgozunk mélyen.</div></details>
       <details class="rv"><summary>Mi történik, ha menet közben változik az igény?</summary><div class="ans">A heti egyeztetés pont ezért van. A kisebb módosítások beleférnek a keretbe, a nagyobb bővítést külön ajánlatban rögzítjük, mielőtt bármi elkészülne. Nem az a célunk, hogy pluszmunkát számlázzunk, hanem hogy a végén használható rendszer legyen.</div></details>
-      <details class="rv"><summary>Milyen méretű cégekkel dolgoztok?</summary><div class="ans">Elsősorban kis- és középvállalkozásokkal, jellemzően 5 és 100 fő között. Nagyvállalati bevezetésben, többcsapatos programokban nem utazunk. Ha ilyen igény merül fel, azt az első egyeztetésen jelezzük.</div></details>
+      <details class="rv"><summary>Milyen méretű cégekkel dolgoznak?</summary><div class="ans">Elsősorban kis- és középvállalkozásokkal, jellemzően 5 és 100 fő között. Nagyvállalati bevezetésben, többcsapatos programokban nem utazunk. Ha ilyen igény merül fel, azt az első egyeztetésen jelezzük.</div></details>
       <details class="rv"><summary>Mi van az adatvédelemmel?</summary><div class="ans">A projekt elején rögzítjük, milyen adatot kezelünk, hol tárolódik és ki fér hozzá. Titoktartási és adatfeldolgozói megállapodást kötünk. A rendszerek EU-s adatközpontban (Frankfurt) futnak. Formális tanúsítványunk nincs, és nem is állítjuk, hogy volna. Csak olyan vállalást írunk le, amit teljesíteni is tudunk.</div></details>
       <details class="rv"><summary>Készítettek már webshopot online fizetéssel?</summary><div class="ans">Élő webshop-referenciánk még nincs, ezt előre megmondjuk. A fizetést a Megrendelő Barion- vagy SimplePay-szerződésére kötjük be: a pénzforgalom és az ügyfélhitelesítés a szolgáltatónál marad, nálunk a termékek, a kosár és a szállítás. A bekötést előbb próbakörnyezetben mutatjuk meg működés közben, és és csak írásos jóváhagyás után kerül élesbe.</div></details>
       <details class="rv"><summary>Mennyibe kerül a rendszer havi üzemeltetése?</summary><div class="ans">A futtatás díja a tárhelyszolgáltatónál keletkezik, és közvetlenül a Megrendelő nevére szól — nem rajtunk keresztül számlázódik, és nem teszünk rá árrést. Egy tipikus belső ügyviteli rendszernél ez néhány ezer forint havonta, a pontos összeget az ajánlatban tételesen leírjuk. Ettől külön áll a havi partneri díj, ami csak folyamatos fejlesztés esetén szükséges.</div></details>
@@ -1065,8 +1070,8 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;font-size:.875rem;co
   <div class="wrap">
     <h2 style="margin:0 auto">Kezdjük egy díjmentes konzultációval.</h2>
     <p class="lead" style="max-width:62ch">Elmondják, hol akad meg a napi működés, mi pedig megmondjuk, mi automatizálható, nagyjából mennyiért és mennyi idő alatt. Ha nem éri meg belevágni, azt is megmondjuk.</p>
-    <a class="btn" href="#kapcsolat">Kapcsolatfelvétel</a>
-    <p class="sm" style="margin:18px auto 0;color:#A7ADB4">X · válasz 24 órán belül</p>
+    <a class="btn" href="mailto:info@fabrio.hu?subject=Konzult%C3%A1ci%C3%B3%20k%C3%A9r%C3%A9se">Kapcsolatfelvétel</a>
+    <p class="sm cim" style="margin:18px auto 0;color:#A7ADB4"><a href="mailto:info@fabrio.hu">info@fabrio.hu</a> · válasz 24 órán belül</p>
   </div>
 </section>
 
@@ -1104,8 +1109,8 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;font-size:.875rem;co
       </div>
     </div>
     <div class="copy">
-      <span>© 2026 Fabrio · Minden jog fenntartva.</span>
-      <span>X</span>
+      <span>© 2026 Fabrio Coding Kft. · Minden jog fenntartva.</span>
+      <span><a href="mailto:info@fabrio.hu">info@fabrio.hu</a></span>
     </div>
   </div>
 </footer>
