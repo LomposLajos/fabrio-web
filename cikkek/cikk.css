@@ -93,6 +93,14 @@ h1{font-family:var(--serif);font-weight:600;font-size:clamp(2rem,4.1vw,3rem);
 .body{display:grid;grid-template-columns:minmax(0,1fr) 250px;gap:72px;
   padding:60px 0 96px;align-items:start}
 .art{max-width:70ch;min-width:0}
+
+/* Jogi lapok (impresszum, adatkezeles): nincs oldalso tartalomjegyzek,
+   ezert egy hasab. A fuggoleges terkoz azonos a cikkekevel. */
+.jogi{padding:60px 0 96px}
+.jogi .art{max-width:74ch}
+.jogi .art table{margin:22px 0 34px}
+.jogi .art td:first-child{width:34%;white-space:normal}
+@media(max-width:560px){.jogi .art td:first-child{width:42%}}
 .art h2{font-family:var(--serif);font-weight:600;font-size:1.62rem;line-height:1.25;
   letter-spacing:-.015em;margin:52px 0 20px;scroll-margin-top:92px}
 .art h2:first-child{margin-top:0}
