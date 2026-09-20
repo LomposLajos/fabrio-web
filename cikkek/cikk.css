@@ -194,3 +194,19 @@ footer a:hover{color:var(--ink)}
   .back,.meta{display:none}
   footer{border-top:1pt solid #ccc;font-size:9pt}
 }
+
+.jogi .art .halk{color:var(--slate);font-weight:400;font-size:.86rem}
+
+/* Harom hasabos adatfeldolgozo-tablazat telefonon: a harmadik oszlop
+   ot sorba tordelodott. Keskeny kijelzon soronkent blokkra bontjuk,
+   a fejlecek helyett beszedes cimkekkel. */
+@media(max-width:600px){
+  .jogi .art table.feld thead{display:none}
+  .jogi .art table.feld tr{display:block;padding:16px 0;border-bottom:1px solid var(--line)}
+  .jogi .art table.feld tr:last-child{border-bottom:0}
+  .jogi .art table.feld td{display:block;border:0;padding:0 0 6px;width:auto}
+  .jogi .art table.feld td:first-child{width:auto;font-weight:600;color:var(--ink);margin-bottom:2px}
+  .jogi .art table.feld td:nth-child(2)::before{content:"Feladat — ";color:var(--ink);font-weight:600}
+  .jogi .art table.feld td:nth-child(3)::before{content:"Érintett adatkör — ";color:var(--ink);font-weight:600}
+  .jogi .art table.feld td:last-child{padding-bottom:0}
+}
