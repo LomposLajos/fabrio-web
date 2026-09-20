@@ -263,6 +263,11 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;font-size:.875rem;co
 /* A sotet savban a cim a fo konverzios elem: teljes kontraszt, lathato link-jelzes. */
 .dark .cim a{color:#E8E4DE;text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1px}
 .dark .cim a:hover{color:#E0905F}
+/* Masolhato cim: asztali gepen a mailto nema marad, ha nincs levelezoprogram. */
+.masol{font:600 .78rem/1 var(--sans);color:var(--copper);background:transparent;border:1px solid var(--line);border-radius:3px;padding:7px 10px;margin:0 4px 0 6px;cursor:pointer;vertical-align:middle}
+.masol:hover{border-color:var(--copper)}
+.dark .masol{color:#E8E4DE;border-color:#3A434B}
+.dark .masol:hover{border-color:#E0905F;color:#E0905F}
 @media(max-width:800px){.footgrid{grid-template-columns:1fr;gap:28px}}
 
 /* Mobilon a nagy szekcio-terkozok ures savokat hagynanak. */
@@ -1204,7 +1209,7 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;font-size:.875rem;co
     <h2 style="margin:0 auto">Kezdjük egy díjmentes konzultációval.</h2>
     <p class="lead" style="max-width:62ch">Elmondják, hol akad meg a napi működés, mi pedig megmondjuk, mi automatizálható, nagyjából mennyiért és mennyi idő alatt. Ha nem éri meg belevágni, azt is megmondjuk.</p>
     <a class="btn" href="mailto:info@fabrio.hu?subject=Konzult%C3%A1ci%C3%B3%20k%C3%A9r%C3%A9se">Kapcsolatfelvétel</a>
-    <p class="sm cim" style="margin:18px auto 0;color:#A7ADB4"><a href="mailto:info@fabrio.hu">info@fabrio.hu</a> · válasz 24 órán belül</p>
+    <p class="sm cim" style="margin:18px auto 0;color:#A7ADB4"><a href="mailto:info@fabrio.hu">info@fabrio.hu</a> <button type="button" class="masol" data-cim="info@fabrio.hu">Cím másolása</button> · válasz 24 órán belül</p>
   </div>
 </section>
 
@@ -1285,6 +1290,32 @@ footer{border-top:1px solid var(--line);padding:56px 0 44px;font-size:.875rem;co
     if(e.key==='Escape' && n.classList.contains('nyit')){ allit(false); g.focus(); }
   });
   addEventListener('resize', function(){ if(innerWidth>1020) allit(false); });
+})();
+</script>
+<script data-koveto>
+/* Hirdetesbol erkezo latogato: a cimsor ?f= es &k= parametere a mailto targyaba es a belso
+   hivatkozasokba kerul. A lap NEM tarol semmit, NEM hiv kulso szervert, NEM ir sutit. */
+(function(){
+  var q=new URLSearchParams(location.search), f=q.get('f'), k=q.get('k');
+  document.querySelectorAll('.masol').forEach(function(b){
+    b.addEventListener('click',function(){
+      var c=b.getAttribute('data-cim'), volt=b.textContent;
+      function ok(){ b.textContent='Kimásolva'; setTimeout(function(){ b.textContent=volt; },1800); }
+      if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(c).then(ok,function(){ prompt('Másolja ki a címet:',c); }); }
+      else { prompt('Másolja ki a címet:',c); }
+    });
+  });
+  if(!f) return;
+  var kod='[F-'+f.toUpperCase().replace(/[^A-Z0-9]/g,'')+']'+(k?' – '+k:'');
+  var qs='f='+encodeURIComponent(f)+(k?'&k='+encodeURIComponent(k):'');
+  document.querySelectorAll('a[href]').forEach(function(a){
+    var h=a.getAttribute('href');
+    if(h.indexOf('mailto:')===0){ a.setAttribute('href',h.split('?')[0]+'?subject='+encodeURIComponent('Konzultáció kérése '+kod)); return; }
+    if(/^(https?:|#|data:|tel:)/.test(h)) return;
+    var i=h.indexOf('#'), b=i<0?h:h.slice(0,i), t=i<0?'':h.slice(i);
+    if(b.indexOf('?')>=0) return;
+    a.setAttribute('href',b+'?'+qs+t);
+  });
 })();
 </script>
 </body>

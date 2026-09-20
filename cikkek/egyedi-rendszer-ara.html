@@ -150,6 +150,9 @@
       <ul class="toc"><li><a href="#az-arat-a-munka-mennyisege-hatarozza-meg-nem">Az árat a munka mennyisége határozza meg, nem a cég mérete</a></li><li><a href="#weboldal--es-webshopsavok-mikor-melyik-indok">Weboldal- és webshopsávok: mikor melyik indokolt</a></li><li><a href="#az-audit-mint-elso-elkulonitett-lepes-es-a-f">Az audit mint első, elkülönített lépés — és a fizetési ütemezés</a></li><li><a href="#egyedi-belso-rendszer-3-m-ft-tol">Egyedi belső rendszer: 3 M Ft-tól</a></li><li><a href="#automatizalas-es-dokumentumfeldolgozas-amiko">Automatizálás és dokumentumfeldolgozás: amikor nem kell teljes rendszer</a></li><li><a href="#az-erp-sav-az-iparagi-aranyok-es-a-folyamato">Az ERP-sáv, az iparági arányok és a folyamatos üzemeltetés</a></li><li><a href="#amikor-nem-erdemes-fejlesztetni">Amikor nem érdemes fejlesztetni</a></li></ul>
     </aside>
   </div>
+  <div class="wrap"><div class="kapcs">
+    <p><b>Kérdése van a fentiekhez?</b> Írjon: <a href="mailto:info@fabrio.hu?subject=Konzult%C3%A1ci%C3%B3%20k%C3%A9r%C3%A9se">info@fabrio.hu</a><button type="button" class="masol" data-cim="info@fabrio.hu">Cím másolása</button> — válasz 24 órán belül. Az első beszélgetés díjmentes, 30 perc.</p>
+  </div></div>
   <section class="more">
     <div class="wrap">
       <h2>További tudnivalók</h2>
@@ -163,6 +166,32 @@
     <span><a href="index.html">Tudnivalók</a> · <a href="../index.html">Főoldal</a> · <a href="../impresszum.html">Impresszum</a> · <a href="../adatkezeles.html">Adatkezelés</a></span>
   </div>
 </footer>
+<script data-koveto>
+/* Hirdetesbol erkezo latogato: a cimsor ?f= es &k= parametere a mailto targyaba es a belso
+   hivatkozasokba kerul. A lap NEM tarol semmit, NEM hiv kulso szervert, NEM ir sutit. */
+(function(){
+  var q=new URLSearchParams(location.search), f=q.get('f'), k=q.get('k');
+  document.querySelectorAll('.masol').forEach(function(b){
+    b.addEventListener('click',function(){
+      var c=b.getAttribute('data-cim'), volt=b.textContent;
+      function ok(){ b.textContent='Kimásolva'; setTimeout(function(){ b.textContent=volt; },1800); }
+      if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(c).then(ok,function(){ prompt('Másolja ki a címet:',c); }); }
+      else { prompt('Másolja ki a címet:',c); }
+    });
+  });
+  if(!f) return;
+  var kod='[F-'+f.toUpperCase().replace(/[^A-Z0-9]/g,'')+']'+(k?' – '+k:'');
+  var qs='f='+encodeURIComponent(f)+(k?'&k='+encodeURIComponent(k):'');
+  document.querySelectorAll('a[href]').forEach(function(a){
+    var h=a.getAttribute('href');
+    if(h.indexOf('mailto:')===0){ a.setAttribute('href',h.split('?')[0]+'?subject='+encodeURIComponent('Konzultáció kérése '+kod)); return; }
+    if(/^(https?:|#|data:|tel:)/.test(h)) return;
+    var i=h.indexOf('#'), b=i<0?h:h.slice(0,i), t=i<0?'':h.slice(i);
+    if(b.indexOf('?')>=0) return;
+    a.setAttribute('href',b+'?'+qs+t);
+  });
+})();
+</script>
 <script>
 (function(){
   var g=document.getElementById('menugomb'), n=document.getElementById('fomenu');

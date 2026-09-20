@@ -210,3 +210,13 @@ footer a:hover{color:var(--ink)}
   .jogi .art table.feld td:nth-child(3)::before{content:"Érintett adatkör — ";color:var(--ink);font-weight:600}
   .jogi .art table.feld td:last-child{padding-bottom:0}
 }
+
+/* Kapcsolati sav a cikk vegen: a cikkoldalakon eddig nem volt kozvetlen elerhetoseg. */
+.kapcs{margin:36px 0 0;padding:22px 26px;border:1px solid var(--line);background:var(--paper2,#F3F0EA);border-radius:4px}
+.kapcs p{margin:0;color:var(--slate);font-size:.98rem;line-height:1.65}
+.kapcs b{color:var(--ink)}
+.kapcs a{color:var(--copper);font-weight:600}
+.masol{font:600 .78rem/1 var(--sans,system-ui,sans-serif);color:var(--copper);background:transparent;border:1px solid var(--line);border-radius:3px;padding:7px 10px;margin:0 2px 0 8px;cursor:pointer;vertical-align:middle}
+.masol:hover{border-color:var(--copper)}
+.masol:focus-visible{outline:2px solid var(--focus,#B4551F);outline-offset:2px}
+@media(max-width:560px){.kapcs{padding:18px 18px}}

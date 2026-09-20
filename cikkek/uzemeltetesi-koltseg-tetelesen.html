@@ -148,10 +148,13 @@
       <ul class="toc"><li><a href="#miert-marad-ki-a-fenntartas-a-dontesbol">Miért marad ki a fenntartás a döntésből</a></li><li><a href="#a-tetelek-soronkent-2026-augusztusi-arszint">A tételek soronként (2026. augusztusi árszint)</a></li><li><a href="#mi-jar-a-szallitassal-es-mi-az-ami-opcio">Mi jár a szállítással, és mi az, ami opció</a></li><li><a href="#a-havidijsavok-tartalma">A havidíjsávok tartalma</a></li><li><a href="#harom-ev-ket-forgatokonyvben">Három év két forgatókönyvben</a></li><li><a href="#mi-mozditja-a-savot-felfele-es-lefele">Mi mozdítja a sávot felfelé és lefelé</a></li><li><a href="#amikor-nem-erdemes-egyedit-fejlesztetni">Amikor nem érdemes egyedit fejlesztetni</a></li></ul>
     </aside>
   </div>
+  <div class="wrap"><div class="kapcs">
+    <p><b>Kérdése van a fentiekhez?</b> Írjon: <a href="mailto:info@fabrio.hu?subject=Konzult%C3%A1ci%C3%B3%20k%C3%A9r%C3%A9se">info@fabrio.hu</a><button type="button" class="masol" data-cim="info@fabrio.hu">Cím másolása</button> — válasz 24 órán belül. Az első beszélgetés díjmentes, 30 perc.</p>
+  </div></div>
   <section class="more">
     <div class="wrap">
       <h2>További tudnivalók</h2>
-      <div class="mgrid"><a class="mcard" href="mikor-ne-keszuljon-egyedi-szoftver.html"><span class="k">döntés</span><h3>Mikor ne készüljön egyedi szoftver — hat helyzet, amelyben kész termék a jobb választás</h3><p>Az egyedi szoftver akkor indokolt, ha a folyamat a vállalat sajátja. Ha viszont a feladat tartalmát jogszabály írja el…</p></a><a class="mcard" href="atadando-hozzaferesek-listaja.html"><span class="k">kockázat</span><h3>Ha a fejlesztő holnap eltűnik: 12 tétel, aminek a Megrendelő kezében kell lennie</h3><p>A kis fejlesztőcsapatokkal szemben visszatérő fenntartás nem az ár, hanem egy kérdés: mi történik, ha a csapat egyik n…</p></a><a class="mcard" href="rendszer-es-folyamataudit-lepesei.html"><span class="k">audit</span><h3>Mit tár fel egy rendszer- és folyamataudit, és mikor felesleges megrendelni</h3><p>A fejlesztés előtti mérés célja az, hogy a fejlesztés iránya a döntés előtt eldőljön, és ne egy már megkezdett projekt…</p></a></div>
+      <div class="mgrid"><a class="mcard" href="egyedi-rendszer-ara.html"><span class="k">árazás</span><h3>Mennyibe kerül egy egyedi ügyviteli rendszer 2026-ban? Tételes árszintek és a határaik</h3><p>A magyar szoftverpiacon nem általános az árak közzététele, ezért az első ajánlatkéréshez ritkán áll rendelkezésre visz…</p></a><a class="mcard" href="mikor-ne-keszuljon-egyedi-szoftver.html"><span class="k">döntés</span><h3>Mikor ne készüljön egyedi szoftver — hat helyzet, amelyben kész termék a jobb választás</h3><p>Az egyedi szoftver akkor indokolt, ha a folyamat a vállalat sajátja. Ha viszont a feladat tartalmát jogszabály írja el…</p></a><a class="mcard" href="atadando-hozzaferesek-listaja.html"><span class="k">kockázat</span><h3>Ha a fejlesztő holnap eltűnik: 12 tétel, aminek a Megrendelő kezében kell lennie</h3><p>A kis fejlesztőcsapatokkal szemben visszatérő fenntartás nem az ár, hanem egy kérdés: mi történik, ha a csapat egyik n…</p></a></div>
     </div>
   </section>
 </main>
@@ -161,6 +164,32 @@
     <span><a href="index.html">Tudnivalók</a> · <a href="../index.html">Főoldal</a> · <a href="../impresszum.html">Impresszum</a> · <a href="../adatkezeles.html">Adatkezelés</a></span>
   </div>
 </footer>
+<script data-koveto>
+/* Hirdetesbol erkezo latogato: a cimsor ?f= es &k= parametere a mailto targyaba es a belso
+   hivatkozasokba kerul. A lap NEM tarol semmit, NEM hiv kulso szervert, NEM ir sutit. */
+(function(){
+  var q=new URLSearchParams(location.search), f=q.get('f'), k=q.get('k');
+  document.querySelectorAll('.masol').forEach(function(b){
+    b.addEventListener('click',function(){
+      var c=b.getAttribute('data-cim'), volt=b.textContent;
+      function ok(){ b.textContent='Kimásolva'; setTimeout(function(){ b.textContent=volt; },1800); }
+      if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(c).then(ok,function(){ prompt('Másolja ki a címet:',c); }); }
+      else { prompt('Másolja ki a címet:',c); }
+    });
+  });
+  if(!f) return;
+  var kod='[F-'+f.toUpperCase().replace(/[^A-Z0-9]/g,'')+']'+(k?' – '+k:'');
+  var qs='f='+encodeURIComponent(f)+(k?'&k='+encodeURIComponent(k):'');
+  document.querySelectorAll('a[href]').forEach(function(a){
+    var h=a.getAttribute('href');
+    if(h.indexOf('mailto:')===0){ a.setAttribute('href',h.split('?')[0]+'?subject='+encodeURIComponent('Konzultáció kérése '+kod)); return; }
+    if(/^(https?:|#|data:|tel:)/.test(h)) return;
+    var i=h.indexOf('#'), b=i<0?h:h.slice(0,i), t=i<0?'':h.slice(i);
+    if(b.indexOf('?')>=0) return;
+    a.setAttribute('href',b+'?'+qs+t);
+  });
+})();
+</script>
 <script>
 (function(){
   var g=document.getElementById('menugomb'), n=document.getElementById('fomenu');
